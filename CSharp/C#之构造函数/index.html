@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>C#之构造函数 | HELONGWO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="每个类中都存在构造函数,默认是隐藏的,可显示地书写出来.[#]1234567class yourBaseClassName    &amp;#123;      public yourBaseClassName()        &amp;#123;        &amp;#125;    &amp;#125; 隐式的构造函数可以被覆盖,若覆写一个带参数的构造函数,隐式的构造函数将被覆盖,不可被继承类调用,除非显示的将无参默认">
+<meta name="keywords" content="构造函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#之构造函数">
+<meta property="og:url" content="http://yoursite.com/CSharp/C#之构造函数/index.html">
+<meta property="og:site_name" content="HELONGWO">
+<meta property="og:description" content="每个类中都存在构造函数,默认是隐藏的,可显示地书写出来.[#]1234567class yourBaseClassName    &amp;#123;      public yourBaseClassName()        &amp;#123;        &amp;#125;    &amp;#125; 隐式的构造函数可以被覆盖,若覆写一个带参数的构造函数,隐式的构造函数将被覆盖,不可被继承类调用,除非显示的将无参默认">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-06T09:25:06.631Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C#之构造函数">
+<meta name="twitter:description" content="每个类中都存在构造函数,默认是隐藏的,可显示地书写出来.[#]1234567class yourBaseClassName    &amp;#123;      public yourBaseClassName()        &amp;#123;        &amp;#125;    &amp;#125; 隐式的构造函数可以被覆盖,若覆写一个带参数的构造函数,隐式的构造函数将被覆盖,不可被继承类调用,除非显示的将无参默认">
+  
+    <link rel="alternate" href="/atom.xml" title="HELONGWO" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">HELONGWO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">好记性不如烂笔头.(937682010@139.com)</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSharp/C#之构造函数" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+   
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CShape-C/">CShape/C#</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C#之构造函数
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>每个类中都存在构造函数,默认是隐藏的,可显示地书写出来.<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">yourBaseClassName</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">yourBaseClassName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>隐式的构造函数可以被覆盖,若覆写一个带参数的构造函数,隐式的构造函数将被覆盖,不可被继承类调用,除非显示的将无参默认构造函数写出来.<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">yourBaseClassName</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">yourBaseClassName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">yourBaseClassName</span><span class="params">(Type param)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>若父类中没有无参构造函数(也就是在被覆写的情况下也没有显示写出来的情况),子类中将不得不使用base关键字来显示的来可选择地调用父类带参构造函数,此时子类与父类的构造函数格式应该是一致的(参数个数相同).<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">yourBaseClassName</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">yourBaseClassName</span><span class="params">(Type param)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">yourClassName</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  public yourBaseClassName(Type param) : base(param)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/CSharp/C#之构造函数/" data-id="cjpcpp9xy0004eodk8fw8yj9j" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/构造函数/">构造函数</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Unity3D/有关monobehavior脚本/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Unity3D之有关MonoBehaviour脚本
+        
+      </div>
+    </a>
+  
+  
+    <a href="/CSharp/C#之枚举/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C#之枚举</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CShape-C/">CShape/C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unity3D/">Unity3D</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CanvasGroup/">CanvasGroup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cursor/">Cursor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mariadb/">Mariadb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MonoBehaviour/">MonoBehaviour</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UGUI/">UGUI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单例/">单例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象池/">对象池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常量/">常量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造函数/">构造函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集合/">集合</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 HELONGWO(937682010@139.com)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

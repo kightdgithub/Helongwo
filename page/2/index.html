@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>HELONGWO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="HELONGWO">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="HELONGWO">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HELONGWO">
+  
+    <link rel="alternate" href="/atom.xml" title="HELONGWO" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">HELONGWO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">好记性不如烂笔头.(937682010@139.com)</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-CSharp/C#之对象池" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+   
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CShape-C/">CShape/C#</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CSharp/C#之对象池/">C#对象池</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对象池的作用在于避免频繁的进行对象的创建和销毁造成的资源浪费,但是维护对象池也是需要资源的,当维护所需资源大于创建和销毁所需资源时,反而会事得其反.</p>
+<p>基本的原则是,在内存中创造一个对象池的时候,会限制其容量,并且提供获取和回收方法.</p>
+<figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用泛型接口,可以更加的灵活创建不同类型的对象池,分别定义初始化,创建,获取的方法.</span></span><br><span class="line">interface IMonsterList&lt;T&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">InitMonsterType</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">CreatSingleMonster</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">CreateMultipleMonster</span><span class="params">(<span class="keyword">int</span> Count)</span></span>;</span><br><span class="line">        <span class="function">T <span class="title">GetSingleMonster</span><span class="params">()</span></span>;</span><br><span class="line">        List&lt;T&gt; GetMultipleMonster(<span class="keyword">int</span> Count);</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">EmptyAll</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">currentCount</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>创建 对象池 MonsterList 并且实现IMonsterList接口<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MonsterList</span>&lt;T&gt; :</span> IMonsterList&lt;T&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>对象池 MonsterList 中包含一些属性,用来限制大小,_defaultCount为创建对象池时池内默认的对象个数,这个不是必要的<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#region properties</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> maxCount;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> minCount;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> _defaultCount;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> MaxCount &#123; get =&gt; maxCount; <span class="built_in">set</span> =&gt; maxCount = value; &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> MinCount &#123; get =&gt; minCount; <span class="built_in">set</span> =&gt; minCount = value; &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">int</span> DefaultCount &#123; get =&gt; _defaultCount; <span class="built_in">set</span> =&gt; _defaultCount = value; &#125;</span><br><span class="line"><span class="meta">#endregion</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#region</span></span><br><span class="line">        List&lt;T&gt; MonList</span><br><span class="line"><span class="meta">#endregion</span></span><br></pre></td></tr></table></figure></p>
+<p>创建构造函数并使用单例来生成对象池,一个是没有大小限制的,一个是有大小限制的<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">MonsterList</span><span class="params">(<span class="keyword">int</span> MaxCount, <span class="keyword">int</span> MinCount, <span class="keyword">int</span> defaultcount)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.MaxCount = MaxCount;</span><br><span class="line">            <span class="keyword">this</span>.MinCount = MinCount;</span><br><span class="line">            <span class="keyword">this</span>.DefaultCount = defaultcount;</span><br><span class="line">            MonList = <span class="keyword">new</span> List&lt;T&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> MonsterList&lt;T&gt; Instance;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> MonsterList&lt;T&gt; SingleInstance()</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (Instance == null)</span><br><span class="line">            &#123;</span><br><span class="line">                Instance = <span class="keyword">new</span> MonsterList&lt;T&gt;();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> Instance;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> MonsterList&lt;T&gt; SingleInstance(<span class="keyword">int</span> MaxCount, <span class="keyword">int</span> MinCoun, <span class="keyword">int</span> defaultcount)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (Instance == null || Instance.MaxCount != MaxCount &amp;&amp; Instance.MinCount != MinCoun)</span><br><span class="line">            &#123;</span><br><span class="line">                Instance = <span class="keyword">new</span> MonsterList&lt;T&gt;(MaxCount, MinCoun, defaultcount);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> Instance;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>CreatSingleMonster,GetSingleMonster,RecycleMonster三个方法一般都会实现,根据实际情况取舍.<br>CreateMultipleMonster,GetMultipleMonster这两个并不是必要的,对性能也没有多大的提升.<br>特别值得注意的是,回收对象时候,应该将对象设为待用状态,以此与正在使用的对象作为区分,此方法可在对象本身中实现.<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CreateMultipleMonster</span><span class="params">(<span class="keyword">int</span> Count)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (MaxCount - currentCount() &lt; Count)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">"exceed max count"</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Count; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">string</span>[] param = <span class="keyword">new</span> <span class="built_in">string</span>[] &#123; <span class="string">"NAME"</span> &#125;;</span><br><span class="line">                MonList.Add((T)Activator.CreateInstance(typeof(T), param));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">CreatSingleMonster</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (MonList.Count &lt; MaxCount)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">string</span>[] param = <span class="keyword">new</span> <span class="built_in">string</span>[] &#123; <span class="string">"NAME"</span> &#125;;</span><br><span class="line">                MonList.Add((T)Activator.CreateInstance(typeof(T), param));</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">"fail create single monster"</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">EmptyAll</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (currentCount() != <span class="number">0</span>) &#123; MonList.Clear(); &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">InitMonsterType</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; DefaultCount; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">string</span>[] param = <span class="keyword">new</span> <span class="built_in">string</span>[] &#123; <span class="string">"Name"</span> + i &#125;;</span><br><span class="line">                MonList.Add((T)Activator.CreateInstance(typeof(T), param));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> T <span class="title">GetSingleMonster</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            T t;</span><br><span class="line">            <span class="keyword">if</span> (MonList.Count == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (CreatSingleMonster())</span><br><span class="line">                &#123;</span><br><span class="line">                    t = (T)MonList[<span class="number">0</span>];</span><br><span class="line">                    MonList.Remove(t);</span><br><span class="line">                    <span class="keyword">return</span> t;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            t = (T)MonList[<span class="number">0</span>];</span><br><span class="line">            MonList.Remove(t);</span><br><span class="line">            <span class="keyword">return</span> t;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">currentCount</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> MonList.Count;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> batchCount = <span class="number">5000001</span>;</span><br><span class="line">        <span class="keyword">public</span> List&lt;T&gt; GetMultipleMonster( <span class="keyword">int</span> Count)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="number">1</span> &lt; (Count &lt; batchCount ? Count : batchCount) &amp;&amp; Count &lt; currentCount())</span><br><span class="line">            &#123;</span><br><span class="line">                List&lt;T&gt; mons = MonList.GetRange(<span class="number">0</span>, Count - <span class="number">1</span>);</span><br><span class="line">                MonList.RemoveRange(<span class="number">0</span>, Count - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">return</span> mons;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> null;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">RecycleMonster</span><span class="params">(T mon)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="comment">//reset mon ...</span></span><br><span class="line">            MonList.Add(mon);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/CSharp/C#之对象池/" data-id="cjpcpp9xh0000eodknafsul8f" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/List/">List</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例/">单例</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/对象池/">对象池</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/集合/">集合</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CShape-C/">CShape/C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unity3D/">Unity3D</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CanvasGroup/">CanvasGroup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cursor/">Cursor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mariadb/">Mariadb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MonoBehaviour/">MonoBehaviour</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UGUI/">UGUI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单例/">单例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象池/">对象池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常量/">常量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造函数/">构造函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集合/">集合</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 HELONGWO(937682010@139.com)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

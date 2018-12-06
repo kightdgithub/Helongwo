@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>HELONGWO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="HELONGWO">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:site_name" content="HELONGWO">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HELONGWO">
+  
+    <link rel="alternate" href="/atom.xml" title="HELONGWO" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">HELONGWO</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">好记性不如烂笔头.(937682010@139.com)</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-CSharp/C#之枚举" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+   
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CShape-C/">CShape/C#</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/CSharp/C#之枚举/">C#之枚举</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>枚举类型<br>C#中应该多使用枚举类型，有利于代码的可读性。</p>
+<hr>
+<p>声明格式: 根据Naming rule violation说明,枚举命名的头需要建议大写,这可以在visualstudio2017的提示中看到;<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Name : type&#123;</span><br><span class="line">  key = &lt;value1&gt;,</span><br><span class="line">  key = &lt;value2&gt;,</span><br><span class="line">  key = &lt;value3&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><em>等号左边相当于变量引用,右边为变量值,type表示这个枚举中的数据类型,VS2017的提示中包括{byte,sbyte,short,ushort,int,uint,long,ulong}</em></p>
+<p>例如:<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Number : <span class="keyword">int</span></span><br><span class="line">        &#123;</span><br><span class="line">            zero,</span><br><span class="line">            one,</span><br><span class="line">            two</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>它也可能是这样的:<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Number&#123;zero,one,two&#125;</span><br></pre></td></tr></table></figure><br><em>默认的类型应该为int,并且数值是按照声明顺序从0依次递增</em></p>
+<p>布尔类型中,数据以类似键值对的方式存储,通过’key’能找到’value’,并且通过’value’也能找到key,例如<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number NumberName = (Number)<span class="number">0</span>;</span><br></pre></td></tr></table></figure><br>那么,LanguageName的值将会是’zero’。</p>
+<hr>
+<p>问:当在类中定义一个枚举时, 为什么visualstudio2017会提示建议将枚举定义成为一个类中?这样做是规范还是有别的好处?<br>答:</p>
+<blockquote>
+<p>枚举使用enum关键字来声明，与类同级。枚举本身可以有修饰符，但枚举的成员始终是公共的，不能有访问修饰符。枚举本身的修饰符仅能使用public和internal。</p>
+</blockquote>
+<p>所以按照类的格式来说,将枚举单独在文本上分开来写(<em>注意不是问题中说定义成为一个类</em>),似乎更为合理。</p>
+<p>问:整形,布尔类型与枚举类型有什么关系?<br>答:</p>
+<blockquote>
+<p>枚举是值类型，隐式继承自System.Enum，不能手动修改。System.Enum本身是引用类型，继承自System.ValueType。</p>
+</blockquote>
+<p>本文中关于枚举类型文本排版和值类型关系引用了一下两处博文,博文中还详细讲解了大量的细节知识,还有很多可以学习的地方。<br><a href="https://www.cnblogs.com/kissdodog/archive/2013/01/16/2863515.html" title="C#枚举" target="_blank" rel="noopener">逆心</a><br><a href="https://www.cnblogs.com/woaixiaozhi/p/5116137.html" title="c#中的值类型和引用类型" target="_blank" rel="noopener">风一样的人生</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/CSharp/C#之枚举/" data-id="cjpcpp9y10006eodkmff30tex" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/枚举/">枚举</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CShape-C/">CShape/C#</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unity3D/">Unity3D</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CanvasGroup/">CanvasGroup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cursor/">Cursor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mariadb/">Mariadb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MonoBehaviour/">MonoBehaviour</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UGUI/">UGUI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单例/">单例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象池/">对象池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常量/">常量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造函数/">构造函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集合/">集合</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 HELONGWO(937682010@139.com)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
