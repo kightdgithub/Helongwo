@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Android/整理ADB工具命令" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Android/整理AndoirdSDK工具命令" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Android/整理ADB工具命令/">整理ADB工具命令</a>
+      <a class="article-title" href="/Helongwo/Android/整理AndoirdSDK工具命令/">整理AndroidSDK工具命令</a>
     </h1>
   
 
@@ -84,21 +84,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="整理adb工具命令"><a href="#整理adb工具命令" class="headerlink" title="整理adb工具命令"></a>整理adb工具命令</h1><p>查看帮助：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb --help</span><br></pre></td></tr></table></figure></p>
-<p>查看连接设备：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure></p>
-<p>开启无线网络连接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb tcpip ip_address:port</span><br></pre></td></tr></table></figure></p>
-<p>使用无线网络连接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb connect ip_address:port</span><br></pre></td></tr></table></figure></p>
-<p>倒出配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dumpsys</span><br></pre></td></tr></table></figure></p>
-<p>使用dumpsys 命令查找app启动入口(注意 Activity Resolver Table: 下的 android.intent.action.MAIN: 之后一般包含的就是启动activity);</p>
-<p>启动app：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">am start &#123;包(package)名&#125;/&#123;包名&#125;.&#123;活动(activity)名称&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="整理AndroidSDK工具命令"><a href="#整理AndroidSDK工具命令" class="headerlink" title="整理AndroidSDK工具命令"></a>整理AndroidSDK工具命令</h1><p>Android SDK </p>
+<p>下载地址(gwf屏蔽了加密链接，将https改为http,将dl-ssl改为dl)<br><a href="http://dl-ssl.google.com/android/repository/tools_r25.2.5-windows.zip" target="_blank" rel="noopener">http://dl-ssl.google.com/android/repository/tools_r25.2.5-windows.zip</a></p>
+<p>cd sdk\tools\bin</p>
+<p>sdkmanager –list 列出所有版本</p>
+<p>sdkmanager “platform-tools” 生成包含相关工具的platform-tools目录</p>
+<p>sdkmanager “platforms;android-25” 生成包含相关工具的platforms目录</p>
+<p>sdkmanager “build-tools;25.0.0” 生成包含相关工具的build-tools目录</p>
+<p>参考:<a href="https://www.youtube.com/watch?v=Rwusu7if8U4&amp;feature=youtu.be" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Rwusu7if8U4&amp;feature=youtu.be</a></p>
+<p>sdkmanager工具路径 .\android-sdk-windows\tools\bin 帮助命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdkmanager --help</span><br></pre></td></tr></table></figure></p>
+<p>如果报一下错误， 确保jdk版本对应android sdk版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.lang.UnsupportedClassVersionError: com/android/sdklib/tool/SdkManagerCli : Unsupported m</span><br><span class="line">ajor.minor version 52.0</span><br><span class="line">        at java.lang.ClassLoader.defineClass1(Native Method)</span><br><span class="line">        at java.lang.ClassLoader.defineClassCond(ClassLoader.java:632)</span><br><span class="line">        at java.lang.ClassLoader.defineClass(ClassLoader.java:616)</span><br><span class="line">        at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:141)</span><br><span class="line">        at java.net.URLClassLoader.defineClass(URLClassLoader.java:283)</span><br><span class="line">        at java.net.URLClassLoader.access$000(URLClassLoader.java:58)</span><br><span class="line">        at java.net.URLClassLoader$1.run(URLClassLoader.java:197)</span><br><span class="line">        at java.security.AccessController.doPrivileged(Native Method)</span><br><span class="line">        at java.net.URLClassLoader.findClass(URLClassLoader.java:190)</span><br><span class="line">        at java.lang.ClassLoader.loadClass(ClassLoader.java:307)</span><br><span class="line">        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)</span><br><span class="line">        at java.lang.ClassLoader.loadClass(ClassLoader.java:248)</span><br><span class="line">Could not find the main class: com.android.sdklib.tool.SdkManagerCli.  Program will exit.</span><br></pre></td></tr></table></figure></p>
+<p>不想影响系统环境的话，可以在新建cmd窗口中设置临时javahome路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set JAVA_HOME=WindowsPath</span><br></pre></td></tr></table></figure></p>
+<p>旧版本的tools与新版的有不同的变化，一般需要试多几个版本的tools：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Could not find the main class: com.android.sdklib.tool.AvdManagerCli.</span><br></pre></td></tr></table></figure></p>
+<p>tools r25和r26之间有关键区别：<br>unity5.6.7使用r26时会报：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CommandInvokationFailure: Unable to list target platforms. Please make sure the android sdk path is correct. See the Console for more details.</span><br></pre></td></tr></table></figure></p>
+<p>r26中已经废除了部分命令，6.5.7最高版本应该使用2.5.2的tools</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Android/整理ADB工具命令/" data-id="ck8othojg002q30upf0t55p44" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Android/整理AndoirdSDK工具命令/" data-id="ck8othofm000030upg09vxx4l" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/ADB/">ADB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Android/">Android</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Android/">Android</a></li></ul>
 
     </footer>
   </div>

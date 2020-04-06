@@ -60,72 +60,31 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3D之导航组件" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3D之标签" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
-  <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Unity3D/">Unity3D</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之导航组件/">Unity3D之导航组件</a>
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3D之导航组件"><a href="#Unity3D之导航组件" class="headerlink" title="Unity3D之导航组件"></a>Unity3D之导航组件</h1><p>Navigation</p>
-<pre><code>Object：物体参数面板
-    Navigation Static：勾选后表示该对象参与导航网格的烘培。
-    OffMeshLink Generation：勾选后可跳跃(Jump)导航网格和下落(Drop)。
-Bake：烘培参数面板　　
-    Radius：具有代表性的物体半径，半径越小生成的网格面积越大。
-    Height：具有代表性的物体的高度。
-    Max Slope：斜坡的坡度。
-    Ste Height：台阶高度。
-    Drop Height：允许最大的下落距离。
-    Jump Distance：允许最大的跳跃距离。
-    Min Region Area：网格面积小于该值则不生成导航网格。
-    Width Inaccuracy：允许最大宽度的误差。
-    Height Inaccuracy：允许最大高度的误差。
-    Height Mesh：勾选后会保存高度信息，同时会消耗一些性能和存储空间。
-</code></pre><p>Nav Mesh Agent：导航组建参数面板　　　　</p>
-<pre><code>Radius：物体的半径
-Speed：物体的行进最大速度
-Acceleration：物体的行进加速度
-Augular Speed：行进过程中转向时的角速度。
-Stopping Distance：离目标距离还有多远时停止。
-Auto Traverse Off Mesh Link：是否采用默认方式度过链接路径。
-Auto Repath：在行进某些原因中断后是否重新开始寻路。
-Height：物体的高度。
-Base Offset：碰撞模型和实体模型之间的垂直偏移量。
-Obstacle Avoidance Type：障碍躲避的的表现登记，None选项为不躲避障碍，另外等级越高，躲避效果越好，同时消耗的性能越多。
-Avoidance Priority：躲避优先级。
-NavMesh Walkable：该物体可以行进的网格层掩码。
-</code></pre><p>原因：初始化导航组件NavMeshAgent 的时候，agent 离navmesh太远。isOnNavMesh属性为false；<br>解决办法：<br>在初始化预制体的时候，传入诞生点位置和旋转信息。<br>GameObject.Instantiate(m_shooter, m_currBirthPoint.transform.position,m_currBirthPoint.transform.rotation) as GameObject;<br>而不是直接初始化，后设置诞生点位置。<br> GameObject.Instantiate(m_shooter）；<br>shooter.transform.position = m_currBirthPoint.transform.position;</p>
-<p>另外：在重新使用SetActive(true);的时候，也要确保agent 离navmesh足够近。<br>建议在设置SetActive(false);的时候，就不要改变位置信息，以免重新激活时离导航网格太远。</p>
-<p>协程导航<br><a href="https://www.jianshu.com/p/c18c8bbe029a" target="_blank" rel="noopener">https://www.jianshu.com/p/c18c8bbe029a</a></p>
-<p>agent.SetDestination()问题</p>
-<p>设置位置之后并不会马上移动，需要时间计算，可以用pathpending来进行判断，在配合协程coroutine使用的时候直接 yield return 即可 </p>
+        <hr>
+<p>title: Unity3D之标签<br>categories: </p>
+<ul>
+<li>Unity3D<br>tags:</li>
+<li>Unity3D</li>
+</ul>
+<hr>
+<h1 id="Unity3D之标签"><a href="#Unity3D之标签" class="headerlink" title="Unity3D之标签"></a>Unity3D之标签</h1><p>1, [RequireComponent (typeof(XXXX))]<br>XXXX为需求的组件,这个标签表示此脚本中需要XXXX标签,并且会由编辑器自动添加,不能删除</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之导航组件/" data-id="ck81v17d0003zmoupmsj7op6i" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之标签/" data-id="ck81v17d20041moupzgg2jjc1" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Navigation/">Navigation</a></li></ul>
-
     </footer>
   </div>
   

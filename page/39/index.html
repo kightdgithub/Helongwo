@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Other/Windows系统chcp命令" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Other/使用C#第三方库之Newtonsoft" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Windows/">Windows</a>
+    <a class="article-category-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Other/Windows系统chcp命令/">Windows系统chcp命令</a>
+      <a class="article-title" href="/Helongwo/Other/使用C#第三方库之Newtonsoft/">JsonDAONET之对象序列化和反序列化</a>
     </h1>
   
 
@@ -84,19 +84,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Windows系统chcp命令"><a href="#Windows系统chcp命令" class="headerlink" title="Windows系统chcp命令"></a>Windows系统chcp命令</h1><p>chcp修改活动代码页面</p>
-<p>chcp 65001 将活动代码页设置为 utf-8</p>
-<p>936 简体中文GBK</p>
-<p>950 繁体中文</p>
-<p>950 繁体中文</p>
+        <h1 id="JsonDAONET之对象序列化和反序列化"><a href="#JsonDAONET之对象序列化和反序列化" class="headerlink" title="JsonDAONET之对象序列化和反序列化"></a>JsonDAONET之对象序列化和反序列化</h1><p>JsonDAONET官方网站: <a href="https://www.newtonsoft.com/json" target="_blank" rel="noopener">https://www.newtonsoft.com/json</a></p>
+<p>序列化对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Product product = new Product();</span><br><span class="line">product.Name = &quot;Apple&quot;;</span><br><span class="line">product.Expiry = new DateTime(2008, 12, 28);</span><br><span class="line">product.Sizes = new string[] &#123; &quot;Small&quot; &#125;;</span><br><span class="line"></span><br><span class="line">string json = JsonConvert.SerializeObject(product);</span><br></pre></td></tr></table></figure></p>
+<p>反序列化对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">string json = @&quot;&#123;</span><br><span class="line">  &apos;Name&apos;: &apos;Bad Boys&apos;,</span><br><span class="line">  &apos;ReleaseDate&apos;: &apos;1995-4-7T00:00:00&apos;,</span><br><span class="line">  &apos;Genres&apos;: [</span><br><span class="line">    &apos;Action&apos;,</span><br><span class="line">    &apos;Comedy&apos;</span><br><span class="line">  ]</span><br><span class="line">&#125;&quot;;</span><br><span class="line"></span><br><span class="line">Movie m = JsonConvert.DeserializeObject&lt;Movie&gt;(json);</span><br><span class="line"></span><br><span class="line">string name = m.Name;</span><br></pre></td></tr></table></figure></p>
+<p>反序列化时可以使用JsonDAONET的[JsonProperty(“YouJsonProperties”)]来匹配C#类中的属性字段和Json中的属性字段,参考实例:<br><a href="https://stackoverflow.com/questions/39914334/c-sharp-deserializing-json-using-json-net-want-to-extract-array-index-as-a-mod#" target="_blank" rel="noopener">https://stackoverflow.com/questions/39914334/c-sharp-deserializing-json-using-json-net-want-to-extract-array-index-as-a-mod#</a></p>
+<p>如果反序列化之前并没有对象类,可以使用此网站工具快速的创建:<br><a href="http://json2csharp.com" target="_blank" rel="noopener">http://json2csharp.com</a></p>
+<p>Json在线格式化工具:<br><a href="https://www.webtoolkitonline.com/json-formatter.html" target="_blank" rel="noopener">https://www.webtoolkitonline.com/json-formatter.html</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Other/Windows系统chcp命令/" data-id="ck8othohm000t30upiuy7dku6" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Other/使用C#第三方库之Newtonsoft/" data-id="ck81v17ca002nmouph23l2el1" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/chcp/">chcp</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Json-序列化-反序列化/">Json,序列化,反序列化</a></li></ul>
 
     </footer>
   </div>

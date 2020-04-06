@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/使用CanvasGroup组件和Cursor类来实现快捷信息面板查看" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Git/整理Git命令" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Unity3D/">Unity3D</a>
+    <a class="article-category-link" href="/Helongwo/categories/Git/">Git</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/使用CanvasGroup组件和Cursor类来实现快捷信息面板查看/">使用CanvasGroup组件和Cursor类来实现快捷信息面板查看</a>
+      <a class="article-title" href="/Helongwo/Git/整理Git命令/">整理Git命令</a>
     </h1>
   
 
@@ -84,26 +84,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="使用CanvasGroup组件和Cursor类来实现快捷信息面板查看"><a href="#使用CanvasGroup组件和Cursor类来实现快捷信息面板查看" class="headerlink" title="使用CanvasGroup组件和Cursor类来实现快捷信息面板查看"></a>使用CanvasGroup组件和Cursor类来实现快捷信息面板查看</h1><p>主要用到CanvasGroup组件和Cursor类</p>
-<p>CanvasGroup是Canvas中的一个可选组件,添加Canvas时候自动附加:<a href="https://docs.unity3d.com/Manual/class-CanvasGroup.html" target="_blank" rel="noopener">CanvasGroup</a><br>通过Interactable 属性来设置其激活状态,true时接受鼠标和键盘的操作, false时不接受鼠标和键盘的操作<br>通过alpha属性设置透明度,1为完全透明,0为完全不透明</p>
-<figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Tab))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//此处为CanvasGroup下子对象的操作</span></span><br><span class="line">                gameObject.GetComponentInParent&lt;CanvasGroup&gt;().alpha = <span class="number">1</span>;</span><br><span class="line">                gameObject.GetComponentInParent&lt;CanvasGroup&gt;().interactable = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
-<p>Cursor类定义以及实例:<a href="https://docs.unity3d.com/ScriptReference/Cursor.html" target="_blank" rel="noopener">Scripting API</a></p>
-<p>有关CursorLockMode:<br>None: 鼠标移动方式不受限制,相当于自由移动,包括游戏窗口之外<br>Locked: 固定在游戏窗口之中,且为正中位置<br>Confined: 限制在游戏窗口之中,大多数PC正常设置应该为此项</p>
-<figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Tab))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//此处为CanvasGroup下子对象的操作</span></span><br><span class="line">                gameObject.GetComponentInParent&lt;CanvasGroup&gt;().alpha = <span class="number">1</span>;</span><br><span class="line">                gameObject.GetComponentInParent&lt;CanvasGroup&gt;().interactable = <span class="literal">true</span>;</span><br><span class="line">                Cursor.lockState = CursorLockMode.None;</span><br><span class="line">                Cursor.visible = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
-<p>使用一下代码在TAB键松开时候自动隐藏并且取消面板激活状态</p>
-<figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Tab))</span><br><span class="line">            &#123;</span><br><span class="line">                gameObject.GetComponentInParent&lt;CanvasGroup&gt;().alpha = <span class="number">0</span>;</span><br><span class="line">                gameObject.GetComponentInParent&lt;CanvasGroup&gt;().interactable = <span class="literal">false</span>;</span><br><span class="line">                Cursor.lockState = CursorLockMode.Confined;</span><br><span class="line">                Cursor.visible = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
-<!--
-效果图
-![Tab快捷键信息框显示Demo](/_imgs/InfoBox.gif)
--->
+        <h1 id="整理Git命令"><a href="#整理Git命令" class="headerlink" title="整理Git命令"></a>整理Git命令</h1><p>克隆命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b gh-pages //指定分支版本</span><br></pre></td></tr></table></figure></p>
+<p>分支管理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git branch -a //查看所有，包括远程分支</span><br><span class="line">git branch //查看本地分支</span><br><span class="line">git remote -v //查看远程分支</span><br><span class="line">git checkout &quot;master&quot; //切换本地分支</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/使用CanvasGroup组件和Cursor类来实现快捷信息面板查看/" data-id="ck81v17dp0058moupan288iu6" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Git/整理Git命令/" data-id="ck8othoh3000630upjlbps1wd" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/CanvasGroup/">CanvasGroup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Cursor/">Cursor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/UGUI/">UGUI</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Git/">Git</a></li></ul>
 
     </footer>
   </div>

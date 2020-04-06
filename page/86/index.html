@@ -60,35 +60,46 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3D之模仿抛射体" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3D之添加安卓打包模块" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
+  <div class="article-category">
+    <a class="article-category-link" href="/Helongwo/categories/Unity3D/">Unity3D</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之添加安卓打包模块/">Unity3D之添加安卓打包模块</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: Unity3D之模仿抛射体<br>categories: </p>
-<ul>
-<li>Unity3D<br>tags:</li>
-<li>Projectile</li>
-</ul>
+        <h1 id="Unity3D之添加安卓打包模块"><a href="#Unity3D之添加安卓打包模块" class="headerlink" title="Unity3D之添加安卓打包模块"></a>Unity3D之添加安卓打包模块</h1><p>正常的方法是通过安装器进行安装；</p>
+<p>解压版Unity3D 5.6.7版本没有安卓打包模块（解压版提示的是“No android module loaded”，安装版不知道是如何提示的），可以进入<a href="https://unity.cn/，选中对应版本的addtional" target="_blank" rel="noopener">https://unity.cn/，选中对应版本的addtional</a> downloads页面进行下载</p>
+<p>这里给出直接下载链接：<br><a href="https://download.unitychina.cn/download_unity/e80cc3114ac1/TargetSupportInstaller/UnitySetup-Android-Support-for-Editor-5.6.7f1.exe" target="_blank" rel="noopener">https://download.unitychina.cn/download_unity/e80cc3114ac1/TargetSupportInstaller/UnitySetup-Android-Support-for-Editor-5.6.7f1.exe</a></p>
+<p>双击安装，目录填写解压版的unity目录；</p>
+<p>–此方法不能100%成功<br>下载后$INSTDIR$_59_代表了Unity安装目录下的\Editor\Data\PlaybackEngines\目录；<br>在此处新建AndroidPlayer目录；<br>将$INSTDIR$_59_下的文件解压到AndroidPlayer文件夹；<br>将$PlUGINSDIR下的文件覆盖解压（解压版unity已经就有这个文件夹了）；</p>
 <hr>
-<p>抛射物分为两种,一种慢而且有弧度曲线的，如炮弹,另一种是快速而且几乎是沿着直线的，如子弹，激光</p>
-<p>第一种:<br>注意:不在update方法中执行<br>添加速度<br>rigidbody.velocity = transform.forward * 30f;//挂载在抛射物体上面</p>
-<p>第二种:<br>在update中执行<br>Vector3.forward <em> 1000 </em> Time.deltaTime//需要刚体<br>transform.Translate(Vector3.forward <em> 100 </em> Time.deltaTime);//不需要刚体</p>
-<hr>
-<p>选择射线作为碰撞判断的好处,SphereCast具有layerMask参数,这个参数可一选择性的屏蔽不同的层</p>
+<p>SDK路径设置：<br>在edit -&gt; Preference -&gt; external tool中设置；<br>需要JDK,SDK,NDK（android底层开发）</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之模仿抛射体/" data-id="ck8othols005b30upa3wiey81" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之添加安卓打包模块/" data-id="ck81v17d40044moup7rh6x38o" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Android/">Android</a></li></ul>
+
     </footer>
   </div>
   

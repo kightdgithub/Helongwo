@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3D之添加安卓打包模块" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity之使用sqlite存储数据" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之添加安卓打包模块/">Unity3D之添加安卓打包模块</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity之使用sqlite存储数据/">Unity3d之使用sqlite存储数据</a>
     </h1>
   
 
@@ -84,21 +84,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3D之添加安卓打包模块"><a href="#Unity3D之添加安卓打包模块" class="headerlink" title="Unity3D之添加安卓打包模块"></a>Unity3D之添加安卓打包模块</h1><p>正常的方法是通过安装器进行安装；</p>
-<p>解压版Unity3D 5.6.7版本没有安卓打包模块（解压版提示的是“No android module loaded”，安装版不知道是如何提示的），可以进入<a href="https://unity.cn/，选中对应版本的addtional" target="_blank" rel="noopener">https://unity.cn/，选中对应版本的addtional</a> downloads页面进行下载</p>
-<p>这里给出直接下载链接：<br><a href="https://download.unitychina.cn/download_unity/e80cc3114ac1/TargetSupportInstaller/UnitySetup-Android-Support-for-Editor-5.6.7f1.exe" target="_blank" rel="noopener">https://download.unitychina.cn/download_unity/e80cc3114ac1/TargetSupportInstaller/UnitySetup-Android-Support-for-Editor-5.6.7f1.exe</a></p>
-<p>双击安装，目录填写解压版的unity目录；</p>
-<p>–此方法不能100%成功<br>下载后$INSTDIR$_59_代表了Unity安装目录下的\Editor\Data\PlaybackEngines\目录；<br>在此处新建AndroidPlayer目录；<br>将$INSTDIR$_59_下的文件解压到AndroidPlayer文件夹；<br>将$PlUGINSDIR下的文件覆盖解压（解压版unity已经就有这个文件夹了）；</p>
-<hr>
-<p>SDK路径设置：<br>在edit -&gt; Preference -&gt; external tool中设置；<br>需要JDK,SDK,NDK（android底层开发）</p>
+        <h1 id="Unity3d之使用sqlite存储数据"><a href="#Unity3d之使用sqlite存储数据" class="headerlink" title="Unity3d之使用sqlite存储数据"></a>Unity3d之使用sqlite存储数据</h1><p>使用SQLite4Unity3d项目,继承到strangeIOC;<br>将Datadevice类作为注入类调用时候,strangeIOC会报错误,提示 ‘InjectionException: Attempt to Instantiate a null binding’;<br>一种解决方法是,将构造函数注释,构造内容新建init()方法来手动调用,</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之添加安卓打包模块/" data-id="ck81v17d40044moup7rh6x38o" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity之使用sqlite存储数据/" data-id="ck81v17dj004vmoupywd1heo7" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Android/">Android</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/sqlite/">sqlite</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/数据存储/">数据存储</a></li></ul>
 
     </footer>
   </div>

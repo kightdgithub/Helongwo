@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-CSharp/理解C#之结构体(Struct)" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Git/Git_error" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/CSharp/理解C#之结构体(Struct)/">理解C#之Struct</a>
+      <a class="article-title" href="/Helongwo/Git/Git_error/">Git出现&#39;PRC failed&#39;可能解决方法</a>
     </h1>
   
 
@@ -84,26 +84,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="理解C-之Struct"><a href="#理解C-之Struct" class="headerlink" title="理解C#之Struct"></a>理解C#之Struct</h1><p>结构体为值类型(class为引用类型,它们所在的堆栈位置不同,<del>并且值类型的struct是不可以被赋值为null</del>,结构体可以赋值为null,<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/structs" target="_blank" rel="noopener">(参见MSDN文档)</a>,引用类型的class同样可以赋值为null)</p>
-<hr>
-<p>实例化类型(object)数据：存储在堆(heap)上;<br>值类型(int,float,double,struct)数据: 存储在栈(stack)上;</p>
-<hr>
-<p>关于传参<br>传参中是包括值类型和引用类型的.<br>直接传递值就是在栈(stack)上开辟一个新的空间存放这个值,是值的拷贝,不同与堆(heap)上的引用会影响原本的对象,值数据的拷贝都是独立的.</p>
-<hr>
-<p><del>struct作为值类型,数据量小的时候使用并没有什么大问题,但是数据量一旦大的时候,class的引用效率应该会更高.</del><br>struct作为值类型,拥有性能优势,unity3d中的vector2和vector3就是struct,在update()方法中生成一个vector3实例会比生成一个object对象性能消耗要小得多,所以Unity3d中vector可以在任意的地方使用.<br>[Unity3d里vector中定义的方法怎么都没有实现呢?一个结构体是是如何定义方法的?]</p>
-<hr>
-<p>struct具有性能优势,class具有扩展优势;</p>
-<p><del>struct没有构造函数,class有构造函数</del><br>struct有构造体函数,<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/using-structs" target="_blank" rel="noopener">定义结构的默认（无参数）构造函数是错误的。 在结构体中初始化实例字段也是错误的。</a>,参见(<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/using-structs" target="_blank" rel="noopener">使用结构（C# 编程指南）</a></p>
-<p><del>struct只能被internal(默认)和public修饰符修饰;</del><br><del>class可以被全部四种private,internal,pretect,public修饰符修饰;</del></p>
-<p>class和struct都可以被全部四种private,internal,protected,public修饰符修饰</p>
+        <h1 id="Git-clone-命令出现’RPC-failed’错误可能的解决方案"><a href="#Git-clone-命令出现’RPC-failed’错误可能的解决方案" class="headerlink" title="Git clone 命令出现’RPC failed’错误可能的解决方案"></a>Git clone 命令出现’RPC failed’错误可能的解决方案</h1><p><a href="https://www.cnblogs.com/stonefeng/p/5722286.html" target="_blank" rel="noopener">https://www.cnblogs.com/stonefeng/p/5722286.html</a><br><a href="https://www.cnblogs.com/fengwenqian/p/8316650.html" target="_blank" rel="noopener">https://www.cnblogs.com/fengwenqian/p/8316650.html</a><br><a href="https://www.jianshu.com/p/f5e3362db219" target="_blank" rel="noopener">https://www.jianshu.com/p/f5e3362db219</a><br><a href="https://www.cnblogs.com/sddai/p/10209121.html" target="_blank" rel="noopener">https://www.cnblogs.com/sddai/p/10209121.html</a><br><a href="https://www.cnblogs.com/zjfjava/p/10392150.html" target="_blank" rel="noopener">https://www.cnblogs.com/zjfjava/p/10392150.html</a><br><a href="http://vking.wang/2017/09/26/git-clone-error-rpc-failed-curl-56-ssl-read-error00000000lib0func0reason0-errno-10054-ffatal-early-eof/" target="_blank" rel="noopener">http://vking.wang/2017/09/26/git-clone-error-rpc-failed-curl-56-ssl-read-error00000000lib0func0reason0-errno-10054-ffatal-early-eof/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/理解C#之结构体(Struct)/" data-id="ck81v17b0000emoup2brsg2li" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Git/Git_error/" data-id="ck81v17b3000imoupx5gut7ps" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/结构体/">结构体</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/枚举/">枚举</a></li></ul>
 
     </footer>
   </div>

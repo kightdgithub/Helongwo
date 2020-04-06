@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-NodeJS/整理npm包管理命令" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Other/Hugo之语法" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Nodejs/">Nodejs</a>
+    <a class="article-category-link" href="/Helongwo/categories/Hugo/">Hugo</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/NodeJS/整理npm包管理命令/">整理npm包管理命令</a>
+      <a class="article-title" href="/Helongwo/Other/Hugo之语法/">Hugo之语法</a>
     </h1>
   
 
@@ -84,16 +84,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="整理npm包管理命"><a href="#整理npm包管理命" class="headerlink" title="整理npm包管理命"></a>整理npm包管理命</h1><p>查看帮助命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -h</span><br></pre></td></tr></table></figure></p>
-<p>安装模块，全局安装位置位于node_modules目录下的，默认安装在当前目录node_modules下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i xxxx -g</span><br></pre></td></tr></table></figure></p>
-<p>卸载模块， -g 参数全局卸载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall xxxx -g</span><br></pre></td></tr></table></figure></p>
+        <h1 id="Hugo之语法"><a href="#Hugo之语法" class="headerlink" title="Hugo之语法"></a>Hugo之语法</h1><p>front matter: Markdown文件中的头部,使用 ‘—‘或者’+++’包裹起来的生命字段</p>
+<p>.Params: hugo内建变量,可以看作是front matter的集合</p>
+<hr>
+<p>config文件: 可以使用yaml,toml(默认),json三种格式;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//yaml格式</span><br><span class="line">params:</span><br><span class="line">  copyrighthtml: Copyright &amp;#xA9; 2017 John Doe. All Rights Reserved.</span><br><span class="line">  sidebarrecentlimit: 5</span><br><span class="line">  twitteruser: spf13</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//toml格式</span><br><span class="line">[params]</span><br><span class="line">  copyrighthtml = &quot;Copyright &amp;#xA9; 2017 John Doe. All Rights Reserved.&quot;</span><br><span class="line">  sidebarrecentlimit = 5</span><br><span class="line">  twitteruser = &quot;spf13&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Json格式</span><br><span class="line">&#123;</span><br><span class="line">   &quot;params&quot;: &#123;</span><br><span class="line">      &quot;copyrighthtml&quot;: &quot;Copyright \u0026#xA9; 2017 John Doe. All Rights Reserved.&quot;,</span><br><span class="line">      &quot;sidebarrecentlimit&quot;: 5,</span><br><span class="line">      &quot;twitteruser&quot;: &quot;spf13&quot;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>.Site.Pages: hugo的内建变量,可以获得config文件中的字段值,可以看作是整个站点的变量合集;</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/NodeJS/整理npm包管理命令/" data-id="ck81v17c20027moup2s63ewfs" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Other/Hugo之语法/" data-id="ck81v17c10026moupz3us1svs" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Golang/">Golang</a></li></ul>
+
     </footer>
   </div>
   

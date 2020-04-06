@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3D之子父物体" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3D之数据保存" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之子父物体/">Unity3D之子父物体</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之数据保存/">Unity3D之数据保存</a>
     </h1>
   
 
@@ -84,22 +84,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3D之子父物体"><a href="#Unity3D之子父物体" class="headerlink" title="Unity3D之子父物体"></a>Unity3D之子父物体</h1><p>寻找子物体,确定名字的情况下使用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FindChild(&quot;name&quot;)</span><br></pre></td></tr></table></figure></p>
-<p>根据标签寻找使用(返回一个GameObject):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static GameObject FindWithTag(string tag);</span><br></pre></td></tr></table></figure></p>
-<p>根据标签寻找多个对象使用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static GameObject[] FindGameObjectsWithTag(string tag);</span><br></pre></td></tr></table></figure></p>
-<p>寻找确定路径的对象使用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GameObject.Find(&quot;GameObject&quot;); </span><br><span class="line">GameObject.Find(&quot;GameObject/ChildGameObject);</span><br></pre></td></tr></table></figure></p>
-<p>查找子对象脚本:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public Component[] GetComponentsInChildren&lt;T&gt;();</span><br></pre></td></tr></table></figure></p>
-<p>根据脚本组件获取对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Component.transform</span><br><span class="line">Component.gameObject</span><br></pre></td></tr></table></figure></p>
-<p>获取子对象个数(尚不清楚包不包含孙对象):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform.childCount</span><br></pre></td></tr></table></figure></p>
-<p>子父类脚本加载顺序: 连续创建物体对象,其上挂载的脚本会按照创建倒序类执行,即后创建先执行;</p>
-<h1 id="如果本来就存在的物体对象-剥离脚本后重新确定顺序-则会按照从父-子-孙的顺序来执行"><a href="#如果本来就存在的物体对象-剥离脚本后重新确定顺序-则会按照从父-子-孙的顺序来执行" class="headerlink" title="如果本来就存在的物体对象,剥离脚本后重新确定顺序,则会按照从父,子,孙的顺序来执行."></a>如果本来就存在的物体对象,剥离脚本后重新确定顺序,则会按照从父,子,孙的顺序来执行.</h1><p>获取父类对象: transform.parent.gameObject</p>
-
+        <h1 id="Unity3D之数据保存"><a href="#Unity3D之数据保存" class="headerlink" title="Unity3D之数据保存"></a>Unity3D之数据保存</h1><p>将数据存储为二进制文件</p>
+<pre><code>* 可以加密
+* 一般用在不会改变的资源上
+* 某些Unity类例如 Vector, Sprite 等是不能进行序列化的，可以参考此方式自己封装https://www.cnblogs.com/bicker/p/4478086.html
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之子父物体/" data-id="ck81v17cy003wmouppef14zlb" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之数据保存/" data-id="ck8ou6l9y0000jsup5fezfedv" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Resource/">Resource</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/资源管理/">资源管理</a></li></ul>
+
     </footer>
   </div>
   

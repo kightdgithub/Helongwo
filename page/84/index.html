@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3D之数据保存" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3d之欧拉角与四元数" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之数据保存/">Unity3D之数据保存</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3d之欧拉角与四元数/">Unity3d之欧拉角与四元数</a>
     </h1>
   
 
@@ -84,18 +84,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3D之数据保存"><a href="#Unity3D之数据保存" class="headerlink" title="Unity3D之数据保存"></a>Unity3D之数据保存</h1><p>将数据存储为二进制文件</p>
-<pre><code>* 可以加密
-* 一般用在不会改变的资源上
-* 某些Unity类例如 Vector, Sprite 等是不能进行序列化的，可以参考此方式自己封装https://www.cnblogs.com/bicker/p/4478086.html
-</code></pre>
+        <h1 id="Unity3d之欧拉角与四元数"><a href="#Unity3d之欧拉角与四元数" class="headerlink" title="Unity3d之欧拉角与四元数"></a>Unity3d之欧拉角与四元数</h1><p><a href="https://blog.csdn.net/yupu56/article/details/54883003" target="_blank" rel="noopener">https://blog.csdn.net/yupu56/article/details/54883003</a>   –slerp 球形插值</p>
+<p>在Unity中，如果需要更改物体的Rotation，并不能像更改Position一样直接对Vector赋值进行更改，因为Rotation是四元数的方式。</p>
+<p>这时，可以对Rotation进行四元数的转换成欧拉角，做到赋值更改旋转轴数值。</p>
+<p>四元数转欧拉角：transform.rotation.eulerAngles</p>
+<p>欧拉角转四元数：</p>
+<p>Vector3 rotationVector3 = new Vector3(0f, 30f, 0f);</p>
+<p>Quaternion rotation = Quaternion.Euler(rotationVector3);</p>
+<p>transform.rotation = rotation;</p>
+<p>Quaternion.eulerAngles直接输出Quaternion的Vector3值 </p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之数据保存/" data-id="ck8ou6l9y0000jsup5fezfedv" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3d之欧拉角与四元数/" data-id="ck81v17di004tmoup4bq812dz" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Resource/">Resource</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/资源管理/">资源管理</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/transform/">transform</a></li></ul>
 
     </footer>
   </div>

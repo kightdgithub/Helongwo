@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Linux/Android搭建linux系统环境" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3d之Bounds" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Linux/">Linux</a>
+    <a class="article-category-link" href="/Helongwo/categories/Unity3D/">Unity3D</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Linux/Android搭建linux系统环境/">Android搭建linux系统环境</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3d之Bounds/">Unity3d之Bounds</a>
     </h1>
   
 
@@ -84,60 +84,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Android搭建linux系统环境"><a href="#Android搭建linux系统环境" class="headerlink" title="Android搭建linux系统环境"></a>Android搭建linux系统环境</h1><p><a href="https://www.cnblogs.com/li-hua/p/5965569.html" target="_blank" rel="noopener">https://www.cnblogs.com/li-hua/p/5965569.html</a><br><a href="https://medium.com/@quantvc/running-debian-on-android-device-natively-73545c9b0757" target="_blank" rel="noopener">https://medium.com/@quantvc/running-debian-on-android-device-natively-73545c9b0757</a></p>
-<p>找到的一些方案：<br>1， linux deployer<br>2， userLand<br>3， linux on android<br>4， termux + atilo<br>6,  busybox + chroot <a href="https://www.cnblogs.com/xiaocen/p/3703574.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaocen/p/3703574.html</a><br><a href="https://haruue.moe/blog/2017/05/02/android-chroot-archlinux/" target="_blank" rel="noopener">https://haruue.moe/blog/2017/05/02/android-chroot-archlinux/</a><br><a href="https://www.cnblogs.com/shamoguzhou/p/6233407.html" target="_blank" rel="noopener">https://www.cnblogs.com/shamoguzhou/p/6233407.html</a><br><a href="https://blog.csdn.net/mengweiqi33/article/details/22796619" target="_blank" rel="noopener">https://blog.csdn.net/mengweiqi33/article/details/22796619</a><br><a href="https://blog.csdn.net/guo343310267/article/details/94392159" target="_blank" rel="noopener">https://blog.csdn.net/guo343310267/article/details/94392159</a><br><a href="https://veltlion.github.io/chroot-archlinux-on-android/" target="_blank" rel="noopener">https://veltlion.github.io/chroot-archlinux-on-android/</a><br><a href="https://www.cnblogs.com/tianziru/p/5522350.html" target="_blank" rel="noopener">https://www.cnblogs.com/tianziru/p/5522350.html</a><br><a href="https://www.cnblogs.com/hongyi1159/p/6636763.html?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="noopener">https://www.cnblogs.com/hongyi1159/p/6636763.html?utm_source=itdadao&amp;utm_medium=referral</a><br>在 Android 上 chroot 一个 ArchLinux</p>
-<hr>
-<p>对比了以上方案之后,感觉linuxdeployer和termux比较靠谱，但总有种隔靴搔痒感觉,最后选择了Chroot方案,也就是文末贴出来文章.</p>
-<p>总的来讲步骤并不难:<br>需要一个已经root的手机，要能在adb登录后使用su进行root切换；<br>下载archlinux的ARM版本，这里用的odroid似乎是开发板的版本；<br>创建Chroot目录，解压之，使用mount –rbind 必要的系统目录；<br>busybox mount –rbind /dev /data/linux/archlinux/dev<br>busybox mount –rbind /sys /data/linux/archlinux/sys<br>busybox mount –rbind /proc /data/linux/archlinux/proc<br>busybox mount -t tmpfs tmpfs /data/linux/archlinux/tmp</p>
-<p>使用 chroot /data/linux/archlinux bash 切换到archlinux；<br>android内核对网络有特定机制，需要修改用户组来增加权限(adb命令行中的shell显示真的是蛋疼,android Linux的自带vi更是让人抓狂-_-)；</p>
-<p>启动sshd,chroot中systemd不能正常工作,使用手工启动<br>/bin/sshd -D</p>
-<p>之后可以正常连接</p>
-<hr>
-<p>AndroidLinux</p>
-<p>翻知乎看到初春静流的 这条回答 ，刚好手边有闲置的 Android 机，不妨来试试 chroot 。<br>创建 root 目录</p>
-<p>首先手机必须破解了 root 权限，然后到 /data 下面建一个用作 rootfs 的目录，比如我用的是 /data/local/archlinux 。<br>获取合适的 ArchLinuxARM 镜像</p>
-<p>虽然现在 ArchLinux 只对 x86_64 架构提供支持，但是有 ArchLinuxARM 项目对 arm 平台也提供了完善的支持，去源里找一个支持你手机平台的镜像，比如我用的是 ArchLinuxARM-odroid。<br>把镜像安装到手机</p>
-<p>把镜像下载下来，解压到 /data/local/archlinux ，先别急着 chroot ，把必要的目录 rbind 过去</p>
-<p>busybox mount –rbind /dev /data/local/archlinux/dev<br>busybox mount –rbind /sys /data/local/archlinux/sys<br>busybox mount –rbind /proc /data/local/archlinux/proc<br>busybox mount -t tmpfs tmpfs /data/local/archlinux/tmp</p>
-<p>切换到 chroot 环境</p>
-<p>现在就是切换到 chroot 环境的时候了，使用这条命令就好</p>
-<p>chroot /data/local/archlinux bash</p>
-<p>不出所料的话， bash 会出现在你的眼前。<br>联网</p>
-<p>讲道理网络本来应该是配好的，不过 Android 内核有个蛋疼的网络权限机制，所以还需要做一些魔改</p>
-<p>groupadd -g 3001 aid_bt<br>groupadd -g 3002 aid_bt_net<br>groupadd -g 3003 aid_inet<br>groupadd -g 3004 aid_net_raw<br>groupadd -g 3005 aid_admin</p>
-<p>usermod -a -G aid_bt,aid_bt_net,aid_inet,aid_net_raw,aid_admin root</p>
-<p>newgrp aid_inet    # 切换到 aid_inet 组，获取联网权限</p>
-<p>然后是解析，Arch Linux 的网络和解析默认都是由 systemd 管着的，然而在 chroot 环境下，systemd 不能正常工作，所以手动设置一下吧。</p>
-<p>rm /etc/resolv.conf    # 先删掉之前的符号链接<br>echo ‘nameserver ip.of.name.server’ &gt; /etc/resolv.conf</p>
-<p>pacman</p>
-<p>清华和科大都提供了 ArchLinuxARM 的开源镜像，把这两行放到 /etc/pacman.d/mirrorlist 顶上</p>
-<p>Server = <a href="http://mirrors.ustc.edu.cn/archlinuxarm/$arch/$repo" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/archlinuxarm/$arch/$repo</a><br>Server = <a href="http://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/$arch/$repo" target="_blank" rel="noopener">http://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/$arch/$repo</a></p>
-<p>然后配置 pacman 使用 curl 进行下载，在 /etc/pacman.conf 中取消注释下面一行</p>
-<p>XferCommand = /usr/bin/curl -C - -f %u &gt; %o</p>
-<p>完成之后 pacman 应该就能正常工作了。<br>坑<br>服务</p>
-<p>由于 systemd 在 chroot 环境下不能工作，所以需要使用 nohup 启动服务。</p>
-<p>例如启动 sshd 服务使用</p>
-<p>nohup /bin/sshd -D &gt; sshd.log &amp;</p>
-<p>要提示没有 host key 就 gen 一个</p>
-<p>ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N ‘’ -t rsa</p>
-<p>用户与权限</p>
-<p>大部分手机在挂载 /data 时使用了 nosuid ，比如我这部手机的</p>
-<p>/dev/block/mmcblk0p21 /data ext4 rw,seclabel,nosuid,nodev,noatime,journal_checksum,journal_async_commit,noauto_da_alloc,data=ordered 0 0</p>
-<p>这使得需要 suid 的东西都无法工作，比如 sudo ，要解决这个问题，有三种方案：</p>
-<pre><code>直接使用 root 用户，有需要时使用 sudo 降低权限（可能不安全）
-把整个 rootfs 放到一个 img 文件里，然后挂载
+        <p><a href="http://www.xuanyusong.com/archives/3461" target="_blank" rel="noopener">http://www.xuanyusong.com/archives/3461</a> //自动计算物体包围盒 Bounds</p>
+<p><a href="http://docs.manew.com/Components/31.html" target="_blank" rel="noopener">http://docs.manew.com/Components/31.html</a> //游戏蛮牛文档</p>
+<p><a href="http://c.biancheng.net/view/2772.html" target="_blank" rel="noopener">http://c.biancheng.net/view/2772.html</a></p>
+<p><a href="https://blog.csdn.net/yangxun983323204/article/details/73501045" target="_blank" rel="noopener">https://blog.csdn.net/yangxun983323204/article/details/73501045</a> //boxcollider 线框绘制工具</p>
 
-在手机上使用 suid 选项重新挂载 /data
-
- busybox mount -o remount,suid /data
-</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Linux/Android搭建linux系统环境/" data-id="ck81v17bj001emouphrarlh3t" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3d之Bounds/" data-id="ck81v17d9004bmoupcqys9gc8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Chroot/">Chroot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Linux/">Linux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/collider/">collider</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/碰撞体/">碰撞体</a></li></ul>
 
     </footer>
   </div>

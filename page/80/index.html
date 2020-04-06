@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3D之坐标轴" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3D之异步场景加载" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之坐标轴/">Unity3D之坐标轴</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之异步场景加载/">Unity3d之ScriptableObject的限制</a>
     </h1>
   
 
@@ -84,16 +84,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3D之坐标轴"><a href="#Unity3D之坐标轴" class="headerlink" title="Unity3D之坐标轴"></a>Unity3D之坐标轴</h1><p>unity使用的是左手坐标轴；<br>Y轴指向上方，X轴指向右方，Z轴指向前方；<br>在scene窗口将视图转换为2D模式，此时坐标轴摆正；</p>
-<p>物体自身坐标轴在导入时默认与世界坐标轴一致；</p>
+        <h1 id="Unity3d之ScriptableObject的限制"><a href="#Unity3d之ScriptableObject的限制" class="headerlink" title="Unity3d之ScriptableObject的限制"></a>Unity3d之ScriptableObject的限制</h1><p>记录一下坑!</p>
+<p>项目场景的分层:<br>使用 SceneManager.LoadSceneAsync() 方法进行异步场景加载,返回为一个是一个AsynOperation枚举, 所以可以作为 yield return的返回值;<br>在官方的Advnture Sample Game的例子中, 在unity原生环境中, 包括了三个场景,<br>一个为初始化场景’persistent’,这里主要做了一些初始化工作,包括挂载场景控制的物体也存放在此,persistent场景是不会unload的,整个游戏中一直存在;<br>其余的两个均为具体的游戏中场景,它们都是以additive的方式加载,并且作为激活的场景存在.</p>
+<p>在strangeIOC中使用异步加载:<br>strangeIOC是一个用于前后分离的框架,因为使用协程的方式,StartCoroutine方法需要继承MonoBehaviour才能使用,所以应该在strangeIOC框架的界面视图层进行调用;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//创建继承View的管理类</span><br><span class="line">public class ScenceMgrView : View</span><br></pre></td></tr></table></figure></p>
+<p>View类由strangIOC提供,代表了视图层,此类继承MonoBehaviour<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if (SceneManager.GetActiveScene().buildIndex != 0)</span><br><span class="line">        &#123;</span><br><span class="line">            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);</span><br><span class="line">        &#125;</span><br><span class="line">        // Allow the given scene to load over several frames and add it to the already loaded scenes (just the Persistent scene at this point).</span><br><span class="line">        yield return SceneManager.LoadSceneAsync(index, LoadSceneMode.Additive);</span><br><span class="line">        // Find the scene that was most recently loaded (the one at the last index of the loaded scenes).</span><br><span class="line">        Scene newlyLoadedScene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);</span><br><span class="line">        // Set the newly loaded scene as the active scene (this marks it as the one to be unloaded next).</span><br><span class="line">        SceneManager.SetActiveScene(newlyLoadedScene);</span><br></pre></td></tr></table></figure></p>
+<p>以上代码卸载上一个场景并加载新的场景后激活(0代表persistent,persistent的存在就是坑的来因);</p>
+<p>整个项目中使用ScenceMgrView类作为场景控制,同样继承View,在游戏开始的时候使用DemoOneStartCommand加载(Command为strangeIOC提供的类,属于控制层);</p>
+<p>但是在场景的转换中,新的场景并不能继续触发进入下一个或者回到上一个场景,并且SceneManager.LoadSceneAsync()方法放回的AsynOperation中,不知道什么原因,isDone并不为true,但是存在以下一种解决方法:</p>
+<p>不采用persistent层,将persistent层移除,在ScenceMgrView创建的时候,直接使用DontDestroyOnLoad()保存,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GameObject sceneController = new GameObject(&quot;sceneController&quot;);</span><br><span class="line">        sceneController.AddComponent&lt;ScenceMgrView&gt;();</span><br><span class="line">        Object.DontDestroyOnLoad(sceneController);</span><br></pre></td></tr></table></figure></p>
+<p>strangeIOC的控制类也使用DontDestroyOnLoad()保存,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">context = new MainSignalContext(this);</span><br><span class="line">        Object.DontDestroyOnLoad(this);</span><br></pre></td></tr></table></figure></p>
+<p>这样,在各个场景中转换也不会造成控制脚本丢失.</p>
+<hr>
+<p>DontDestroyOnLoad 标记<br><a href="https://www.cnblogs.com/Fallever/p/10140868.html" target="_blank" rel="noopener">https://www.cnblogs.com/Fallever/p/10140868.html</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之坐标轴/" data-id="ck81v17cy003xmoupww399sko" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之异步场景加载/" data-id="ck81v17d10040moup9lutv66t" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/坐标轴/">坐标轴</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/协程/">协程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/场景加载/">场景加载</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/异步/">异步</a></li></ul>
 
     </footer>
   </div>

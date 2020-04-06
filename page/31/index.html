@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-NodeJS/理解NuxtJS的异步asyncData方法" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Other/Hugo注意事项" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a>
+    <a class="article-category-link" href="/Helongwo/categories/Hugo/">Hugo</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/NodeJS/理解NuxtJS的异步asyncData方法/">理解NuxtJS的异步asyncData方法</a>
+      <a class="article-title" href="/Helongwo/Other/Hugo注意事项/">Hugo注意事项</a>
     </h1>
   
 
@@ -84,17 +84,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="理解NuxtJS的异步asyncData方法"><a href="#理解NuxtJS的异步asyncData方法" class="headerlink" title="理解NuxtJS的异步asyncData方法"></a>理解NuxtJS的异步asyncData方法</h1><p>asyncData()方法用于异步调用，并且在页面加载之前就已经调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        testvalue: value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">asyncData()&#123;</span><br><span class="line">    console.log(testvalue);  //页面会报testvalue is not defined的错误,因此通过路由query方式传递参数不应该在这里获取，并且在asyncData中也获取不到this对象</span><br><span class="line">    return&#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>asyncData()方法的默认参数 context：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p>dispatch方法，配合异步调用来使用，经常配合asyncData来使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch(&apos;methodName&apos;,param)</span><br></pre></td></tr></table></figure></p>
+        <h1 id="Hugo注意事项"><a href="#Hugo注意事项" class="headerlink" title="Hugo注意事项"></a>Hugo注意事项</h1><p>Hugo server 参数</p>
+<p>为了方便调试,我们会需要生成public文件夹(默认是不生成的,文件会存在内存中,那样本地运行起来会比较快,这点hugo有点geek)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hugo.exe server --renderToDisk --watch --theme aether --verbose --baseUrl=&quot;https://www.kkn</span><br><span class="line">ackgear.top/&quot; --appendPort=false</span><br></pre></td></tr></table></figure></p>
+<p>–renderToDisk: 生成public文件夹,既发布文件夹,要留意的是hugo在新生成时候不会删除此文件的旧的文件;</p>
+<p>–watch: 监视哪些文件被修改过,hugo自动跟新,不需要重新启动server,不过congif.toml文件的改动不包括在内;</p>
+<p>–theme themename: 指定主题;</p>
+<p>–verbose: 啰嗦模式,比较详细地告诉你hugo在执行命令时做了哪些事情;</p>
+<p>–baseUrl: 使用指定的域名,否者默认是使用”localhost”;</p>
+<p>–appendPort: 域名之后去掉端口号,生成要发布的文件时需要配合–baseUrl来使用;</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/NodeJS/理解NuxtJS的异步asyncData方法/" data-id="ck8othohe000l30up7qz6t9r7" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Other/Hugo注意事项/" data-id="ck81v17c4002bmoupdnq603m3" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/async/">async</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Golang/">Golang</a></li></ul>
 
     </footer>
   </div>

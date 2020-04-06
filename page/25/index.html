@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Linux/实体机安装ubuntu server 16.04" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Lua/Lua之变量" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Linux/">Linux</a>
+    <a class="article-category-link" href="/Helongwo/categories/Lua/">Lua</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Linux/实体机安装ubuntu server 16.04/">实体机安装ubuntu server 16.04</a>
+      <a class="article-title" href="/Helongwo/Lua/Lua之变量/">Lua之变量</a>
     </h1>
   
 
@@ -84,19 +84,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="实体机安装ubuntu-server-16-04"><a href="#实体机安装ubuntu-server-16-04" class="headerlink" title="实体机安装ubuntu server 16.04"></a>实体机安装ubuntu server 16.04</h1><p>1，LiveCD的制作<br>在windows下使用win32diskimage制作，插入网线和无线网卡，从U盘启动LiveCD，安装过程会提醒连接网络的方式，一般的有线和无线网卡驱动都可以识别；</p>
-<p>2，修改网卡显示名称<br>查看网卡信息<br>sudo ip link<br>iwconfig<br>iw wlan0 info<br>ifconfig<br>若无线网卡名字过长，会影响之后的命令操作<br>修改网卡名称,要在网口down的状态下更改<br>sudo ip link set wlxxxxxxxxxx name wlan0</p>
-<p>3，连接无线网络<br>启动网卡<br>sudo ip link set wlan0 up<br>扫描网路<br>sudo iw dev wlan0 scan | more<br>使用wpa_passphrase生成连接配置文件<br>wpa_passphrase ssid password &gt;&gt; /etc/wpa_supplicant/wpa_supplicant.conf<br>加载配置文件<br>wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf -B<br>获取ip<br>hclient wlan0<br>查看ip信息<br>ip addr<br>驱动问题：<a href="http://blog.sina.com.cn/s/blog_61e023120100q8b1.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_61e023120100q8b1.html</a></p>
-<p>在配置完无线网络连接之后碰到”a start job is running for raise network interface”的启动提示<br>修改等待时间<br>命令：sudo vim /etc/systemd/system/network-online.target.wants/networking.service<br>将里面的TimeoutStartSec=5min 修改为TimeoutStartSec=2sec</p>
-<p>再次启动碰到”Failed to initialize driver interface”<br>忽略报错信息sudo wpa_supplicant -B -iwlan1 -c wpa_supplicant.conf -Dwext</p>
+        <h1 id="Lua之变量"><a href="#Lua之变量" class="headerlink" title="Lua之变量"></a>Lua之变量</h1><p>声明一个Lua变量,默认下它即为全局变量,默认值为nil;</p>
+<p>一个变量可以被赋值为nil,代表它的默认状态;</p>
+<p>nil在条件表达式中相当于false;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A= //不赋值也是可以通过编译并且执行的,此时A的值为nil</span><br><span class="line">B=1</span><br><span class="line">C=2</span><br><span class="line">print(A) //打印nil</span><br><span class="line">print(type(A)) //打印nil,可见nil代表一种数据类型</span><br><span class="line">print(type(B)) //打印number</span><br><span class="line">print(type(nil)) //打印nil</span><br><span class="line">print(type(type(C))) //打印string,可见type()函数返回string类型</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Linux/实体机安装ubuntu server 16.04/" data-id="ck81v17br001wmoupc173htes" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Lua/Lua之变量/" data-id="ck81v17by0022moupxn6sw9d7" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Ubuntu/">Ubuntu</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Lua/">Lua</a></li></ul>
 
     </footer>
   </div>

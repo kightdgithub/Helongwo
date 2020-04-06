@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Linux/Vim_spacevim" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Lua/Lua之table" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Linux/">Linux</a>
+    <a class="article-category-link" href="/Helongwo/categories/Lua/">Lua</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Linux/Vim_spacevim/">为VIM 安装 spacevim 插件</a>
+      <a class="article-title" href="/Helongwo/Lua/Lua之table/">Lua之table</a>
     </h1>
   
 
@@ -84,23 +84,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="为VIM-安装-spacevim-插件"><a href="#为VIM-安装-spacevim-插件" class="headerlink" title="为VIM 安装 spacevim 插件"></a>为VIM 安装 spacevim 插件</h1><p>需要安装vimproc<br><a href="https://github.com/Shougo/vimproc.vim#building" target="_blank" rel="noopener">https://github.com/Shougo/vimproc.vim#building</a><br>将vimproc下载之后按照步骤解压编译，然后修改文件名称为vimfiles, 存放位置为Home目录下，一般就是通过在vim中使用vimruntimepath查询出来的路径</p>
-<p>vim 修改时提示 E21: Cannot make changes, ‘Modifiable’ is off</p>
-<p>给不能连接外网的机器安装spacevim： <a href="https://blog.csdn.net/u013033845/article/details/90904592" target="_blank" rel="noopener">https://blog.csdn.net/u013033845/article/details/90904592</a></p>
-<p><a href="https://spacevim.org/cn/quick-start-guide/#%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97" target="_blank" rel="noopener">https://spacevim.org/cn/quick-start-guide/#%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97</a></p>
-<p>curl -sLf <a href="https://spacevim.org/cn/install.sh" target="_blank" rel="noopener">https://spacevim.org/cn/install.sh</a> | bash</p>
-<p>SpaceVim中vimproc的vimproc_linux64.so未找到：<a href="https://www.cnblogs.com/zhuxiaoxi/p/8466846.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhuxiaoxi/p/8466846.html</a></p>
-<p>安装 nerd-font: <a href="https://github.com/ryanoasis/nerd-fonts#option-3-install-script" target="_blank" rel="noopener">https://github.com/ryanoasis/nerd-fonts#option-3-install-script</a></p>
-<p>字体的安装，修改spacevim的配置文件，将guifont设置为’DejaVu Sans Mono for Powerline’，将linux中的字体拷贝到windows下的字体目录内windows/fonts，putty设置使用此字体</p>
-<p>使用console-setup重新配置<br><a href="https://www.cnblogs.com/lzyws739307453/p/11795048.html" target="_blank" rel="noopener">https://www.cnblogs.com/lzyws739307453/p/11795048.html</a></p>
+        <h1 id="Lua之table"><a href="#Lua之table" class="headerlink" title="Lua之table"></a>Lua之table</h1><p>一个最简单的table，table内的元素可以使用.带出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tempTable = &#123;&#125;  </span><br><span class="line">print(tempTable)</span><br></pre></td></tr></table></figure></p>
+<p>元表的设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sakura = &#123;  </span><br><span class="line">   one = 1</span><br><span class="line">&#125;  </span><br><span class="line">sakura.__index = sakura -- __index返回指定的引用 </span><br><span class="line">son = &#123;  </span><br><span class="line">    car=2  </span><br><span class="line">&#125;  </span><br><span class="line">setmetatable(son, sakura)  </span><br><span class="line">print(son.one)</span><br></pre></td></tr></table></figure></p>
+<p>for循环结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for i=0,10,1 do</span><br><span class="line">    print(i)</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>遍历,注意lua的索引是从1开始的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr = &#123;1,2,3,4,5,6,7,8,9,0&#125;</span><br><span class="line">for i=0,10,1 do</span><br><span class="line">    print(arr[i])</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>求table长度<br>1，5.2以前版本使用getn方法或者#符号<br>2，5.2之后使用#符号</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Linux/Vim_spacevim/" data-id="ck81v17bq001umoupwwkj7c24" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Lua/Lua之table/" data-id="ck81v17cg0030moup6pew1j1i" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Vim/">Vim</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/table/">table</a></li></ul>
 
     </footer>
   </div>

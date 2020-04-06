@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-CSharp/理解C#之Enum" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-CSharp/理解C#之Queue" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/CShape/">CShape</a>
+    <a class="article-category-link" href="/Helongwo/categories/Csharp/">Csharp</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/CSharp/理解C#之Enum/">理解C#之Enum</a>
+      <a class="article-title" href="/Helongwo/CSharp/理解C#之Queue/">理解CSharp之Queue</a>
     </h1>
   
 
@@ -84,64 +84,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="理解C-之Enum"><a href="#理解C-之Enum" class="headerlink" title="理解C#之Enum"></a>理解C#之Enum</h1><p><a href="https://www.cnblogs.com/pato/archive/2011/08/15/2139705.html" target="_blank" rel="noopener">https://www.cnblogs.com/pato/archive/2011/08/15/2139705.html</a></p>
-<p>Enum为枚举提供基类，其基础类型可以是除 Char 外的任何整型。如果没有显式声明基础类型，则使用 Int32。编程语言通常提供语法来声明由一组已命名的常数和它们的值组成的枚举。</p>
-<p>注意：枚举类型的基类型是除 Char 外的任何整型，所以枚举类型的值是整型值。</p>
-<p>Enum 提供一些实用的静态方法：</p>
-<p>(1)比较枚举类的实例的方法</p>
-<p>(2)将实例的值转换为其字符串表示形式的方法</p>
-<p>(3)将数字的字符串表示形式转换为此类的实例的方法</p>
-<p>(4)创建指定枚举和值的实例的方法。</p>
-<p>举例：enum Colors { Red, Green, Blue, Yellow };</p>
-<p>Enum–&gt;String</p>
-<p>(1)利用Object.ToString()方法：如Colors.Green.ToString()的值是”Green”字符串；</p>
-<p>(2)利用Enum的静态方法GetName与GetNames：</p>
-<p>public static string GetName(Type enumType,Object value)</p>
-<p>public static string[] GetNames(Type enumType)</p>
-<p>例如：Enum.GetName(typeof(Colors),3))与Enum.GetName(typeof(Colors), Colors.Blue))的值都是”Blue”</p>
-<p>Enum.GetNames(typeof(Colors))将返回枚举字符串数组。</p>
-<p>String–&gt;Enum</p>
-<p>(1)利用Enum的静态方法Parse：</p>
-<p>public static Object Parse(Type enumType,string value)</p>
-<p>例如：(Colors)Enum.Parse(typeof(Colors), “Red”)</p>
-<p>Enum–&gt;Int</p>
-<p>(1)因为枚举的基类型是除 Char 外的整型，所以可以进行强制转换。</p>
-<p>例如：(int)Colors.Red, (byte)Colors.Green</p>
-<p>Int–&gt;Enum</p>
-<p>(1)可以强制转换将整型转换成枚举类型。</p>
-<p>例如：Colors color = (Colors)2 ，那么color即为Colors.Blue</p>
-<p>(2)利用Enum的静态方法ToObject。</p>
-<p>public static Object ToObject(Type enumType,int value)</p>
-<p>例如：Colors color = (Colors)Enum.ToObject(typeof(Colors), 2)，那么color即为Colors.Blue</p>
-<p>判断某个整型是否定义在枚举中的方法：Enum.IsDefined</p>
-<p>public static bool IsDefined(Type enumType,Object value)</p>
-<p>例如：Enum.IsDefined(typeof(Colors), n))</p>
-<p>==========================================================</p>
-<p>枚举类型<br>C#中应该多使用枚举类型，有利于代码的可读性。</p>
-<hr>
-<p>声明格式: 根据Naming rule violation说明,枚举命名的头需要建议大写,这可以在visualstudio2017的提示中看到;<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Name : type&#123;</span><br><span class="line">  key = &lt;value1&gt;,</span><br><span class="line">  key = &lt;value2&gt;,</span><br><span class="line">  key = &lt;value3&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><em>等号左边相当于变量引用,右边为变量值,type表示这个枚举中的数据类型,VS2017的提示中包括{byte,sbyte,short,ushort,int,uint,long,ulong}</em></p>
-<p>例如:<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Number : <span class="keyword">int</span></span><br><span class="line">        &#123;</span><br><span class="line">            zero,</span><br><span class="line">            one,</span><br><span class="line">            two</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
-<p>它也可能是这样的:<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Number&#123;zero,one,two&#125;</span><br></pre></td></tr></table></figure><br><em>默认的类型应该为int,并且数值是按照声明顺序从0依次递增</em></p>
-<p>布尔类型中,数据以类似键值对的方式存储,通过’key’能找到’value’,并且通过’value’也能找到key,例如<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number NumberName = (Number)<span class="number">0</span>;</span><br></pre></td></tr></table></figure><br>那么,LanguageName的值将会是’zero’。</p>
-<hr>
-<p>问:当在类中定义一个枚举时, 为什么visualstudio2017会提示建议将枚举定义成为一个类中?这样做是规范还是有别的好处?<br>答:</p>
-<blockquote>
-<p>枚举使用enum关键字来声明，与类同级。枚举本身可以有修饰符，但枚举的成员始终是公共的，不能有访问修饰符。枚举本身的修饰符仅能使用public和internal。</p>
-</blockquote>
-<p>所以按照类的格式来说,将枚举单独在文本上分开来写(<em>注意不是问题中说定义成为一个类</em>),似乎更为合理。</p>
-<p>问:整形,布尔类型与枚举类型有什么关系?<br>答:</p>
-<blockquote>
-<p>枚举是值类型，隐式继承自System.Enum，不能手动修改。System.Enum本身是引用类型，继承自System.ValueType。</p>
-</blockquote>
-<p>本文中关于枚举类型文本排版和值类型关系引用了一下两处博文,博文中还详细讲解了大量的细节知识,还有很多可以学习的地方。<br><a href="https://www.cnblogs.com/kissdodog/archive/2013/01/16/2863515.html" title="C#枚举" target="_blank" rel="noopener">逆心</a><br><a href="https://www.cnblogs.com/woaixiaozhi/p/5116137.html" title="c#中的值类型和引用类型" target="_blank" rel="noopener">风一样的人生</a></p>
+        <h1 id="理解CSharp之Queue"><a href="#理解CSharp之Queue" class="headerlink" title="理解CSharp之Queue"></a>理解CSharp之Queue</h1><p>Queue队列的规则为先进先出。它不能按索引访问元素，因为没有实现 IList，ICollection,不能使用Add和Remove。</p>
+<p>Enqueue():在队列的末端添加元素</p>
+<p>　　Dequeue():在队列的头部读取和删除一个元素，注意，这里读取元素的同时也删除了这个元素。如果队列中不再有任何元素。就抛出异常</p>
+<p>　　Peek():在队列的头读取一个元素，但是不删除它</p>
+<p>　　Count：返回队列中的元素个数</p>
+<p>　　TrimExcess():重新设置队列的容量，因为调用Dequeue方法读取删除元素后不会重新设置队列的容量。</p>
+<p>　　Contains():确定某个元素是否在队列中</p>
+<p>　　CopyTo():把元素队列复制到一个已有的数组中</p>
+<p>　　ToArray():返回一个包含元素的新数组</p>
+<pre><code>Void Clear():清除队列
+</code></pre><p>从 Queue 中移除所有对象。</p>
+<p>1、Queue 的容量是 Queue 可以保存的元素数。Queue 的默认初始容量为 32。向 Queue 添加元素时，将通过重新分配来根据需要自动增大容量。可通过调用 TrimToSize 来减少容量。等比因子是当需要更大容量时当前容量要乘以的数字。在构造 Queue 时确定增长因子。默认增长因子为 2.0。</p>
+<p>2、Queue 能接受空引用作为有效值，并且允许重复的元素。</p>
+<p>3、空引用可以作为值添加到 Queue。若要区分空值和 Queue 结尾，请检查 Count 属性或捕捉 Queue 为空时引发的 InvalidOperationException异常。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/理解C#之Enum/" data-id="ck81v17ac0003moupshuelitv" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/理解C#之Queue/" data-id="ck81v17am0004mouphtfmbahm" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/枚举/">枚举</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/队列/">队列</a></li></ul>
 
     </footer>
   </div>

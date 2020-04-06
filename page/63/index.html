@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3D之ECS框架参考" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3D之onclickEvent" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之ECS框架参考/">Unity3D之ECS框架参考</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之onclickEvent/">Unity3D之onclickEvent</a>
     </h1>
   
 
@@ -84,14 +84,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3D之ECS框架参考"><a href="#Unity3D之ECS框架参考" class="headerlink" title="Unity3D之ECS框架参考"></a>Unity3D之ECS框架参考</h1><p>一些查阅资料：<br><a href="https://gameinstitute.qq.com/community/detail/114516" target="_blank" rel="noopener">https://gameinstitute.qq.com/community/detail/114516</a><br><a href="https://zhuanlan.zhihu.com/p/59879279" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/59879279</a><br><a href="https://blog.codingnow.com/2017/06/overwatch_ecs.html#more" target="_blank" rel="noopener">https://blog.codingnow.com/2017/06/overwatch_ecs.html#more</a><br><a href="https://blog.csdn.net/xj1009420846/article/details/89402762" target="_blank" rel="noopener">https://blog.csdn.net/xj1009420846/article/details/89402762</a></p>
+        <h1 id="Unity3D之onclickEvent"><a href="#Unity3D之onclickEvent" class="headerlink" title="Unity3D之onclickEvent"></a>Unity3D之onclickEvent</h1><p>申明一个继承UIBehaviour和IPointerClickHandler</p>
+<p>申明一个自定义的UnityEvent类型<br>[Serializable] public class OnClickEvent : UnityEvent<baseuislot> { }</baseuislot></p>
+<p>申明对象<br>public OnClickEvent onClick = new OnClickEvent();</p>
+<p>实现点击方法<br>void IPointerClickHandler.OnPointerClick(PointerEventData eventData)<br>    {<br>        this.onClick.Invoke(this);<br>    }</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之ECS框架参考/" data-id="ck8othoht001430upepx8rqro" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之onclickEvent/" data-id="ck81v17cx003umoupoylde17h" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Event/">Event</a></li></ul>
+
     </footer>
   </div>
   

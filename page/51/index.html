@@ -60,14 +60,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3d之动画系统" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Hexo/Git手动推送Hexo博文" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
-  <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Unity3D/">Unity3D</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -76,7 +72,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3d之动画系统/">Unity3D之动画系统</a>
+      <a class="article-title" href="/Helongwo/Hexo/Git手动推送Hexo博文/">Git手动推送Hexo博文</a>
     </h1>
   
 
@@ -84,23 +80,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3D之动画系统"><a href="#Unity3D之动画系统" class="headerlink" title="Unity3D之动画系统"></a>Unity3D之动画系统</h1><p>//获取运行时动画控制器<br>RuntimeAnimatorController m_runtimeAnimatorController =<br>    animator.runtimeAnimatorController;</p>
-<p>//设置起始动画和结束动画事件<br>        AnimationEvent newEvent = new AnimationEvent();<br>        AnimationEvent endEvent = new AnimationEvent();</p>
-<p>//设置动画播放中事件调用的函数<br>newEvent.functionName = “BeginAttack”;</p>
-<p>//设置动画播放过程中事件发生的时间<br>newEvent.time = 1.733f * 0.383f;</p>
-<p>//设置事件中传递的对象<br>newEvent.objectReferenceParameter = this;</p>
-<p>//获取动画系统中存在的动画数量<br>    AnimationClip[] clips = m_runtimeAnimatorController.animationClips;</p>
-<p>//为动画添加事件<br>    m_runtimeAnimatorController.animationClips[i].AddEvent(newEvent);</p>
-<p>//重新绑定动画<br>    animator.Rebind();</p>
+        <h1 id="Git手动推送Hexo博文"><a href="#Git手动推送Hexo博文" class="headerlink" title="Git手动推送Hexo博文"></a>Git手动推送Hexo博文</h1><p>Hexo的public目录为博文的发布目录,可以在此目录下使用git命令手动推送;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如何推送全新的内容到旧的分支上,也就是完全删除原先的内容,在加入新内容commit;</p>
+<p>clone旧分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b yourbranch https://github.com/githubname/reponame.git</span><br></pre></td></tr></table></figure></p>
+<p>进入git项目目录,删除本地文件,copy新内容到此目录下,注意.git文件夹,.gitignore和CNAME等保留;</p>
+<p>add 并 commit 新内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add . 或者  git add -A</span><br><span class="line">git commit -m &quot;update&quot;</span><br></pre></td></tr></table></figure></p>
+<p>可能会提示你输入用户名和邮箱;</p>
+<p>查看配置信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.name &quot;yourname&quot;</span><br><span class="line">git config user.email</span><br><span class="line">git config user.email &quot;youremail&quot;</span><br><span class="line"></span><br><span class="line">git config --local --list</span><br><span class="line">git config --global --list</span><br><span class="line">git config --system --list</span><br></pre></td></tr></table></figure></p>
+<p>推送到远程仓库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin branchName //origin代表远程仓库</span><br></pre></td></tr></table></figure></p>
+<p>查看提交记录：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3d之动画系统/" data-id="ck81v17dg004qmoupapjr8v6t" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Hexo/Git手动推送Hexo博文/" data-id="ck8ou21fc000008upanylkm8t" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Animator/">Animator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/动画系统/">动画系统</a></li></ul>
-
     </footer>
   </div>
   

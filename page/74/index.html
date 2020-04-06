@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3D之StrangeIOC注入" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3d之事件系统--点击响应" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之StrangeIOC注入/">Unity3D之StrangeIOC注入</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3d之事件系统--点击响应/">Unity3d之事件系统--点击响应</a>
     </h1>
   
 
@@ -84,15 +84,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3D之StrangeIO绑定"><a href="#Unity3D之StrangeIO绑定" class="headerlink" title="Unity3D之StrangeIO绑定"></a>Unity3D之StrangeIO绑定</h1><p>1, Inject 关键字<br>在View的继承类中使用[Inject]注解的实例对象,在update中调用会提示对象为空,应该在需要的地方单独使用一个方法来调用</p>
+        <h1 id="Unity3d之事件系统–点击响应"><a href="#Unity3d之事件系统–点击响应" class="headerlink" title="Unity3d之事件系统–点击响应"></a>Unity3d之事件系统–点击响应</h1><p>1，确保相机添加了physicraycaster<br>2，确保被点击的物体有collider trigger<br>3，确保被点击的物体挂载的脚本实现了IPointerHandler的OnPointclick()方法</p>
+<p>===========================</p>
+<p>方法2<br>1，直接继承UIBehaviour, IPointerClickHandler<br>2，申明UnityEvent类<br>[Serializable] public class OnClickEvent : UnityEvent<baseuislot> { }<br>public OnClickEvent onClick = new OnClickEvent();<br>3，添加回调方法，onClick()方法可以在gamefacade模式中调用，为所有的界面交互物体加入监听<br>this.onClick.Invoke(this);</baseuislot></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之StrangeIOC注入/" data-id="ck81v17cr003gmoupg23tboq8" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3d之事件系统--点击响应/" data-id="ck81v17df004omoup14rhqkw8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/StrangeIOC/">StrangeIOC</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/UnityEvent类/">UnityEvent类</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/事件系统/">事件系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/点击事件/">点击事件</a></li></ul>
 
     </footer>
   </div>

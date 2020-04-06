@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3d之事件系统--点击响应" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3D之坐标轴" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3d之事件系统--点击响应/">Unity3d之事件系统--点击响应</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之坐标轴/">Unity3D之坐标轴</a>
     </h1>
   
 
@@ -84,17 +84,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3d之事件系统–点击响应"><a href="#Unity3d之事件系统–点击响应" class="headerlink" title="Unity3d之事件系统–点击响应"></a>Unity3d之事件系统–点击响应</h1><p>1，确保相机添加了physicraycaster<br>2，确保被点击的物体有collider trigger<br>3，确保被点击的物体挂载的脚本实现了IPointerHandler的OnPointclick()方法</p>
-<p>===========================</p>
-<p>方法2<br>1，直接继承UIBehaviour, IPointerClickHandler<br>2，申明UnityEvent类<br>[Serializable] public class OnClickEvent : UnityEvent<baseuislot> { }<br>public OnClickEvent onClick = new OnClickEvent();<br>3，添加回调方法，onClick()方法可以在gamefacade模式中调用，为所有的界面交互物体加入监听<br>this.onClick.Invoke(this);</baseuislot></p>
+        <h1 id="Unity3D之坐标轴"><a href="#Unity3D之坐标轴" class="headerlink" title="Unity3D之坐标轴"></a>Unity3D之坐标轴</h1><p>unity使用的是左手坐标轴；<br>Y轴指向上方，X轴指向右方，Z轴指向前方；<br>在scene窗口将视图转换为2D模式，此时坐标轴摆正；</p>
+<p>物体自身坐标轴在导入时默认与世界坐标轴一致；</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3d之事件系统--点击响应/" data-id="ck81v17df004omoup14rhqkw8" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之坐标轴/" data-id="ck81v17cy003xmoupww399sko" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/UnityEvent类/">UnityEvent类</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/事件系统/">事件系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/点击事件/">点击事件</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/坐标轴/">坐标轴</a></li></ul>
 
     </footer>
   </div>

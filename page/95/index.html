@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/warframe_UIframework" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/有关monobehavior脚本" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/warframe_UIframework/">warframe UIframework</a>
+      <a class="article-title" href="/Helongwo/Unity3D/有关monobehavior脚本/">Unity3D之有关MonoBehaviour脚本</a>
     </h1>
   
 
@@ -84,19 +84,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="warframe-UIframework"><a href="#warframe-UIframework" class="headerlink" title="warframe UIframework"></a>warframe UIframework</h1><p>创建工程</p>
-<p>背包系统,Inventory为基类,集成monobehavior,将它们绑定在对象上面,在管理类中使用字典进行存储。<br>Inventory包含一些可以复写的方法,使用virtual关键字标注,例如所有面板都有的播放Dotween动画的方法;事件点击方法,如鼠标的左右键点击,移进移除等等。</p>
-<p>创建UI对象Panel,命名为MainMenuPanel</p>
-<p>Main Camera 设置:<br>Tag: MainCamera<br>Layer: Default</p>
-<p>添加新对象为GameRoot,编写脚本GameRoot:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class GameRoot : MonoBehaviour</span><br><span class="line">&#123;</span><br><span class="line">    private void Awake() </span><br><span class="line">    &#123;</span><br><span class="line">        BasePanel basePanel = GameObject.Find(&quot;MainMenuPanel&quot;).GetComponent&lt;BasePanel&gt;();</span><br><span class="line">        UIManager.Instance.SetDefaultPopPanel(UIPanelType.MainMenuPanel, basePanel);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="Unity3D之有关MonoBehaviour脚本"><a href="#Unity3D之有关MonoBehaviour脚本" class="headerlink" title="Unity3D之有关MonoBehaviour脚本"></a>Unity3D之有关MonoBehaviour脚本</h1><p>MonoBehaviour 的生命周期 必须是要挂载在Unity3D物体上才能正常运转,不继承MonoBehaviour的类是不可以被挂载的.</p>
+<p>MonoBehaviour的 实例化也是由unity来管理,一旦挂载了,物体可以轻松通过<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GetComponent&lt;<span class="class"><span class="keyword">class</span> <span class="title">where</span> :</span> MonoBehaviour&gt;();</span><br></pre></td></tr></table></figure><br>来轻松获取实例.</p>
+<p>基于这样的特性,需要单例化的类是不适合继承MonoBehaviour的,当然可以继承但是不挂载在任何一个物体上面,也不使用其生命周期方法.</p>
+<p>MonoBehaviour一个奇怪的要求是, 继承时需要放在 符号 : 之后第一位,VS2017 中的提示是MonoBehaviour要作为第一约束, 并不明白第一约束指的是什么.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/warframe_UIframework/" data-id="ck81v17dq005bmoupc8jahuz4" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/有关monobehavior脚本/" data-id="ck81v17e3006amoup8le033ug" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Inventory/">Inventory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/UI/">UI</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/MonoBehaviour/">MonoBehaviour</a></li></ul>
 
     </footer>
   </div>

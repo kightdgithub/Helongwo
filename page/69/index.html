@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3d之ScriptableObject的限制" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3d之StrangeIOC-ContextKeys" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3d之ScriptableObject的限制/">Unity3d之ScriptableObject的限制</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3d之StrangeIOC-ContextKeys/">Unity3d之StrangeIOC-ContextKeys</a>
     </h1>
   
 
@@ -84,16 +84,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3d之ScriptableObject的限制"><a href="#Unity3d之ScriptableObject的限制" class="headerlink" title="Unity3d之ScriptableObject的限制"></a>Unity3d之ScriptableObject的限制</h1><p>继承ScriptableObject的类 不可以正常的进行实例化,它们的实例都是游unity3d类控制的.</p>
-<p><a href="https://blog.csdn.net/candycat1992/article/details/52181814" target="_blank" rel="noopener">https://blog.csdn.net/candycat1992/article/details/52181814</a> –一些常见用法</p>
+        <h1 id="Unity3d之StrangeIOC-ContextKeys"><a href="#Unity3d之StrangeIOC-ContextKeys" class="headerlink" title="Unity3d之StrangeIOC-ContextKeys"></a>Unity3d之StrangeIOC-ContextKeys</h1><p>[Inject(ContextKeys.CONTEXT_DISPATCHER)]//ContextKeys.CONTEXT_DISPATCHER表示创建了一个全局的dispatcher</p>
+<p>实例中一开始在StartCommand中使用<br>[Inject(ContextKeys.CONTEXT_VIEW)]<br>        public GameObject contextView{get;set;}<br>将挂载SignalRoot的物体作为全局的对象，在StrangeIOC中注册</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3d之ScriptableObject的限制/" data-id="ck81v17da004dmoup371smevu" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3d之StrangeIOC-ContextKeys/" data-id="ck81v17dd004lmoupdvurw7bb" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/ScriptableObject/">ScriptableObject</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/MVCS/">MVCS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/StrangeIOC/">StrangeIOC</a></li></ul>
 
     </footer>
   </div>

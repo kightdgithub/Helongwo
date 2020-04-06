@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Other/Hugo之语法" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Other/Mariadb数据库的安装和连接" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Hugo/">Hugo</a>
+    <a class="article-category-link" href="/Helongwo/categories/Mariadb/">Mariadb</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Other/Hugo之语法/">Hugo之语法</a>
+      <a class="article-title" href="/Helongwo/Other/Mariadb数据库的安装和连接/">Mariadb数据库的安装和连接</a>
     </h1>
   
 
@@ -84,21 +84,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Hugo之语法"><a href="#Hugo之语法" class="headerlink" title="Hugo之语法"></a>Hugo之语法</h1><p>front matter: Markdown文件中的头部,使用 ‘—‘或者’+++’包裹起来的生命字段</p>
-<p>.Params: hugo内建变量,可以看作是front matter的集合</p>
-<hr>
-<p>config文件: 可以使用yaml,toml(默认),json三种格式;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//yaml格式</span><br><span class="line">params:</span><br><span class="line">  copyrighthtml: Copyright &amp;#xA9; 2017 John Doe. All Rights Reserved.</span><br><span class="line">  sidebarrecentlimit: 5</span><br><span class="line">  twitteruser: spf13</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//toml格式</span><br><span class="line">[params]</span><br><span class="line">  copyrighthtml = &quot;Copyright &amp;#xA9; 2017 John Doe. All Rights Reserved.&quot;</span><br><span class="line">  sidebarrecentlimit = 5</span><br><span class="line">  twitteruser = &quot;spf13&quot;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Json格式</span><br><span class="line">&#123;</span><br><span class="line">   &quot;params&quot;: &#123;</span><br><span class="line">      &quot;copyrighthtml&quot;: &quot;Copyright \u0026#xA9; 2017 John Doe. All Rights Reserved.&quot;,</span><br><span class="line">      &quot;sidebarrecentlimit&quot;: 5,</span><br><span class="line">      &quot;twitteruser&quot;: &quot;spf13&quot;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>.Site.Pages: hugo的内建变量,可以获得config文件中的字段值,可以看作是整个站点的变量合集;</p>
+        <h1 id="Mariadb数据库的安装和连接"><a href="#Mariadb数据库的安装和连接" class="headerlink" title="Mariadb数据库的安装和连接"></a>Mariadb数据库的安装和连接</h1><p>选择的是解压安装方法,官方网站下载zip包,这里使用的是10.3.11-winx64版本;</p>
+<p>解压后进入Bin目录,使用管理员权限打开COMMONDLINE或者POWERSHELL命令行,</p>
+<p>设置数据库存储目录(此目录下也会存在此用户新创建数据库的ini配置文件),mariadb的服务名称和默认root用户的登陆密码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.\mysql_install_db.exe --help</span><br><span class="line">.\mysql_install_db.exe --datadir = &quot;choose your directory&quot; -S = &quot;your mariadb service name&quot; -p = &quot;your connecte password&quot;</span><br></pre></td></tr></table></figure></p>
+<p>启动mariadb服务(一般来mariadb的服务说创建之后都会自动开机自启动):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start &quot;your mariadb service name&quot;</span><br></pre></td></tr></table></figure></p>
+<p>连接数据库:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\mysql.exe -u root -p</span><br></pre></td></tr></table></figure></p>
+<p>如果忘记了密码,使用以下方法;<br>停止mariadb服务,再使用mysqld –skip–grant–tables,此时powerhsell或者cmd已经锁死,使用管理员重新开启一个;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">net stop &quot;your mariadb service name&quot;</span><br><span class="line">.\mysqld.exe --skip-grant-tables</span><br></pre></td></tr></table></figure></p>
+<p>进入mariadb的bin目录重新登陆即可.</p>
+<p>修改密码,用户信息存在mysql数据库中,在使用update命令修改密码之后,还需要flush权限;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user set password=password(&quot;yourpassword&quot;) where user=&quot;root&quot;;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Other/Hugo之语法/" data-id="ck81v17c10026moupz3us1svs" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Other/Mariadb数据库的安装和连接/" data-id="ck81v17c5002fmoup5v21gaoc" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Golang/">Golang</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/sql/">sql</a></li></ul>
 
     </footer>
   </div>

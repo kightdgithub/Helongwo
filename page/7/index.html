@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-CSharp/理解C#之Regexp" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-CSharp/理解C#之事件系统" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/CShape/">CShape</a>
+    <a class="article-category-link" href="/Helongwo/categories/C/">C#</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/CSharp/理解C#之Regexp/">整理C#之Regexp</a>
+      <a class="article-title" href="/Helongwo/CSharp/理解C#之事件系统/">理解C#之事件系统</a>
     </h1>
   
 
@@ -84,21 +84,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="整理C-之Regexp"><a href="#整理C-之Regexp" class="headerlink" title="整理C#之Regexp"></a>整理C#之Regexp</h1><p>关键类: Regex<br>命名空间：System.Text.RegularExpressions</p>
-<p><a href="https://www.cnblogs.com/caokai520/p/4511848.html" target="_blank" rel="noopener">https://www.cnblogs.com/caokai520/p/4511848.html</a></p>
-<p>正则表达式中”()”的作用,用以区分判定块,不同”()”中的正则符号是不会相互影响的,那正则表达式又是如何区分需要筛选数据中的括号的呢?</p>
-<p>看例子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string regexpress = @&quot;(\()(\w.*)(\))&quot;;</span><br><span class="line">Console.writeline(Regex.replace(&quot;123(abc123_!@#)1a!&quot;,&quot;_hello_&quot;));</span><br></pre></td></tr></table></figure></p>
-<p>上面这个例子会输出: 123_hello_1a!</p>
-<p>正则表达式中使用转义字符来告诉编译器诸如: ‘(‘, ‘)’, 大中括号, 斜杆等等特殊字符按照原意字符来处理,不进行正则匹配;</p>
-<p>配合@符号的使用,双引号中的正则表达式可读性会好很多,而不需要出现多个斜杆号,只要弄清除小中大括号分别代表的含义就行;</p>
+        <p>C# 事件系统是基于观察者模式的</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/理解C#之Regexp/" data-id="ck81v17at0007moupn8b14bz6" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/理解C#之事件系统/" data-id="ck8othogz000430upw8euxh4t" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Regexp/">Regexp</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Delegate/">Delegate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Event/">Event</a></li></ul>
 
     </footer>
   </div>

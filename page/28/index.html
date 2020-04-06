@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-NodeJS/NuxtJs的安装" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-NodeJS/整理npm包管理命令" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Nuxt/">Nuxt</a>
+    <a class="article-category-link" href="/Helongwo/categories/Nodejs/">Nodejs</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/NodeJS/NuxtJs的安装/">NuxtJs的安装</a>
+      <a class="article-title" href="/Helongwo/NodeJS/整理npm包管理命令/">整理npm包管理命令</a>
     </h1>
   
 
@@ -84,65 +84,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="NuxtJs的安装"><a href="#NuxtJs的安装" class="headerlink" title="NuxtJs的安装"></a>NuxtJs的安装</h1><p>在官网下载nodejs的zip版本；<br><a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a><br>解压并在根目录下新建两个文件夹node-cache 和node-global,用于设置缓存路径和全局包路径；<br>12.13.0版本在运行 npm install 命令时会自动创建；</p>
-<p>执行命令<br>npm config set cache “E:\nodeInstall\node-v10.14.0-win-x64\node-cache”<br>npm config set prefix “E:\nodeInstall\node-v10.14.0-win-x64\node-global”</p>
-<p>解压版目录：<br>node_modules: npm 默认安装时候组件都会放在这里，在每一个组件的目录下会存在一个<br>package.json文件，npm install 命令会根据这个来进行更新；</p>
-<p>修改配置环境变量（创建当前用户的环境变量会最小程度影响系统，但是其他用户不会生效）<br>在桌面右键我的电脑（或计算机）—属性 —高级系统设置—-环境变量—-<br>添加NODE_HOME :E:\nodeInstall\node-v10.14.0-win-x64 (你的nodejs安装根目录，如下图)<br>path添加: ;%NODE_HOME%;%NODE_HOME%\node-globa;</p>
-<p>安装淘宝源的cnpm<br>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></p>
-<p>更换成淘宝的源<br>npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a><br>– 配置后可通过下面方式来验证是否成功<br>npm config get registry<br>– 或npm info express</p>
-<p>nrm切换源</p>
-<p>cnpm不能作为psl命令执行的处理方式<br>set-ExecutionPolicy RemoteSigned</p>
-<p>取消ssl证书认证<br>npm config set strict-ssl false//取消npm的https认证</p>
-<p>版本12.13.0已经带有npx</p>
-<hr>
-<p>使用npx 创建nuxtjs项目<br>npx create-nuxt-app first-app<br>会有一些预置选项选择：<br>create-nuxt-app v2.11.1<br>✨  Generating Nuxt.js project in first-app<br>? Project name first-app<br>? Project description My marvelous Nuxt.js project<br>? Author name<br>? Choose the package manager Npm<br>? Choose UI framework Bootstrap Vue<br>? Choose custom server framework None (Recommended)<br>? Choose Nuxt.js modules (Press <space> to select, <a> to toggle all, <i> to invert selection)<br>? Choose linting tools (Press <space> to select, <a> to toggle all, <i> to invert selection)<br>? Choose test framework Jest<br>? Choose rendering mode Universal (SSR)<br>? Choose development tools (Press <space> to select, <a> to toggle all, <i> to invert selection)<br>在检测完package依赖之后，会提示<br>Successfully created project first-app</i></a></space></i></a></space></i></a></space></p>
-<p>  To get started:</p>
-<pre><code>cd first-app
-npm run dev
-</code></pre><p>  To build &amp; start for production:</p>
-<pre><code>cd first-app
-npm run build
-npm run start
-</code></pre><p>  To test:</p>
-<pre><code>cd first-app
-npm run test
-</code></pre><p>之后应用运行在 <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a></p>
-<hr>
-<p>nuxtjs插件配置<br>安装<br>npm install @nuxtjs/axios</p>
-<p>配置nuxt.config.js<br>export default{<br>    modules: [<br>        // Doc: <a href="https://bootstrap-vue.js.org" target="_blank" rel="noopener">https://bootstrap-vue.js.org</a><br>        ‘bootstrap-vue/nuxt’,<br>        ‘@nuxtjs/axios’,<br>    ]<br>    /<em> 需要使用 aixos必须配置以下两项axios和proxy</em>/<br>    axios: {<br>        prefix: ‘/api/‘,<br>        proxy: true<br>    },</p>
-<pre><code>proxy: {
-    &apos;/api/&apos;: {
-        target: &apos;https://maoyan.com/&apos;,
-        pathRewrite: {
-        &apos;^/api/&apos;: &apos;&apos;
-        }
-    }
-}
-</code></pre><p>}</p>
-<p>在vue中引用</p>
-<script>
-export default {
-  asyncData(context) {
-    return context.$axios.get('ajax/cities')
-      .then(res => {
-        console.log(res)
-      })
-  }
-}
-</script>
-
-<hr>
-<p>nuxt cheerio的使用中报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ was not define</span><br></pre></td></tr></table></figure></p>
-<p>使用正常命令的变量名来代替$符号</p>
+        <h1 id="整理npm包管理命"><a href="#整理npm包管理命" class="headerlink" title="整理npm包管理命"></a>整理npm包管理命</h1><p>查看帮助命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -h</span><br></pre></td></tr></table></figure></p>
+<p>安装模块，全局安装位置位于node_modules目录下的，默认安装在当前目录node_modules下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i xxxx -g</span><br></pre></td></tr></table></figure></p>
+<p>卸载模块， -g 参数全局卸载<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall xxxx -g</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/NodeJS/NuxtJs的安装/" data-id="ck8othoho000v30upwg1o0ee1" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/NodeJS/整理npm包管理命令/" data-id="ck81v17c20027moup2s63ewfs" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Nodejs/">Nodejs</a></li></ul>
-
     </footer>
   </div>
   

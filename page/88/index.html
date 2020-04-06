@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3D之测试库Nunit" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3D之编码问题" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之测试库Nunit/">Unity3D之测试库Nunit</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之编码问题/">Unity3D之编码问题</a>
     </h1>
   
 
@@ -84,19 +84,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3D之测试库Nunit"><a href="#Unity3D之测试库Nunit" class="headerlink" title="Unity3D之测试库Nunit"></a>Unity3D之测试库Nunit</h1><p>需要5.3以上版本以上,路径为 windows–&gt;Test Runner,是基于UNIT的</p>
-<p><a href="https://www.cnblogs.com/msxh/p/7354229.html" target="_blank" rel="noopener">https://www.cnblogs.com/msxh/p/7354229.html</a><br>元测试代码和游戏运行时代码是分开保存的，它只在Editor环境下可用，因此你需要把它放到Editor目录下<br>这就要求编写单元测试时，要引入NUnit.Framework命名空间，且单元测试类要加上[TestFixture]属性，单元测试方法要加上[Test]属性，并将测试用例的文件放在Editor文件夹下。</p>
-<p>========<br>关于UNIT框架<br>老版本文档:<a href="https://nunit.org/download/" target="_blank" rel="noopener">https://nunit.org/download/</a><br>旧版本安装手册:<a href="https://nunit.org/docs/2.6.4/installation.html" target="_blank" rel="noopener">https://nunit.org/docs/2.6.4/installation.html</a></p>
-<p>案例:<a href="https://www.taikr.com/app.php/article/3125" target="_blank" rel="noopener">https://www.taikr.com/app.php/article/3125</a> 在文章中搜索 “实践，U3D中的单元测试”</p>
-<p>扩展：<br>TDD是测试驱动开发（Test-Driven Development）的英文简称，是敏捷开发中的一项核心实践和技术，也是一种设计方法论。<br>为了进行TDD测试驱动开发，我们需要了解TDD的流程或者说技巧，大体上可以将其步骤简单的归纳为：红灯-&gt;绿灯-&gt;重构。</p>
+        <h1 id="Unity3D之编码问题"><a href="#Unity3D之编码问题" class="headerlink" title="Unity3D之编码问题"></a>Unity3D之编码问题</h1><p>在使用test runner测试时,读取的文件要选用utf-8格式,否则可能会报如下错误:<br>Invalid character ‘x’ in input string</p>
+<p>tips:<br>UTF-8分为 “utf-8” 和 “utf-8 with bom”两种</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之测试库Nunit/" data-id="ck8othojw003030up6wn04vas" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之编码问题/" data-id="ck81v17d30043moupmaeoh720" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Nunit/">Nunit</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/encode/">encode</a></li></ul>
 
     </footer>
   </div>

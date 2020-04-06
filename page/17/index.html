@@ -60,14 +60,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Hexo/Hexo主题自定义修改" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Hexo/Hexo插件模块" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
-  <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Hexo/">Hexo</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -76,7 +72,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Hexo/Hexo主题自定义修改/">Hexo主题自定义修改</a>
+      <a class="article-title" href="/Helongwo/Hexo/Hexo插件模块/">Hexo插件模块</a>
     </h1>
   
 
@@ -84,19 +80,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Hexo主题自定义修改"><a href="#Hexo主题自定义修改" class="headerlink" title="Hexo主题自定义修改"></a>Hexo主题自定义修改</h1><p>以默认主题landscape为例,<br>hexo安装目录下的theme文件夹内存在 “_config.yml” 文件,这是主题的配置文件.</p>
-<p>导航栏目的设置,#号注释将会隐藏.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  # Home: /</span><br><span class="line">        Home: /</span><br><span class="line">        # Archives: /archives</span><br><span class="line">        Categories: /categories</span><br><span class="line">        # Tags: /tags</span><br><span class="line">        # About: /about</span><br></pre></td></tr></table></figure></p>
-<p>之后在文章首部中加入如下格式文字, 注意 ‘:’ 之后接空格或者换行(分类的这种写法,分类名字中不应该包含 “/“ 的符号,否则会被浏览器单做路劲分隔符号,包括文本文件 “.md” 也应该避免使用字母和数字之外的特殊符号,否则也可能会造成这种问题 ).<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">- Hexo</span><br></pre></td></tr></table></figure></p>
-<p>布局控件的显示,一般由 sidebar: right 来决定方位.<br>widgets:</p>
-<ul>
-<li>category<br>#- tag<br>#- tagcloud<br>#- archive<br>#- recent_posts</li>
-</ul>
-<p>替换主题图片,<br>在source –&gt; css –&gt; images 下存在banner.jpg,替换并且更名即可.</p>
+        <h1 id="Hexo插件模块"><a href="#Hexo插件模块" class="headerlink" title="Hexo插件模块"></a>Hexo插件模块</h1><p>安装插件:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure></p>
+<p>Hexo的插件安装在项目的node_modules目录下,<br>每一个新的Hexo项目下都需要重新的安装需要的插件,它们是互不干扰的;<br>当出现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR &quot;modelName&quot; not found: git</span><br></pre></td></tr></table></figure></p>
+<p>的错误提示时,可能就是少了某样插件导致.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Hexo/Hexo主题自定义修改/" data-id="ck81v17ba000wmoupt98c3zpd" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Hexo/Hexo插件模块/" data-id="ck81v17bd0011moupjppvd8r9" class="article-share-link">Share</a>
       
       
     </footer>

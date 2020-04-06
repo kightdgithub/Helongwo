@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Skynet/记录在Archlinux上搭建skynet" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-VsCode/整理VSCode快捷键(ShortCut)" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Skynet/">Skynet</a>
+    <a class="article-category-link" href="/Helongwo/categories/Vscode/">Vscode</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Skynet/记录在Archlinux上搭建skynet/">记录在Archlinux上搭建skynet</a>
+      <a class="article-title" href="/Helongwo/VsCode/整理VSCode快捷键(ShortCut)/">整理VSCode快捷键(ShortCut)</a>
     </h1>
   
 
@@ -84,34 +84,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="记录在Archlinux上搭建skynet"><a href="#记录在Archlinux上搭建skynet" class="headerlink" title="记录在Archlinux上搭建skynet"></a>记录在Archlinux上搭建skynet</h1><p>在android上使用chroot安装了一个archlinux，试着用来skynet服务开发环境<br>基于linux内核，操作上来说这个本来就没有太大的区别，这里作为记录，方便查看</p>
-<p>先要有git，方便pull源码</p>
-<p>pacman的帮助查看：<br>pacman -h 给出的基本命令的查看，如果想细看可以添加前缀<br>pacman -S -h 可以查看所有和更新有关的命令</p>
-<p>我们需要先更新软件数据库，所以使用 pacman -Sy<br>报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">warning: Public keyring not found; have you run &apos;pacman-key --init&apos;?</span><br><span class="line">downloading required keys...</span><br><span class="line">error: keyring is not writable</span><br><span class="line">error: keyring is not writable</span><br><span class="line">error: keyring is not writable</span><br><span class="line">error: keyring is not writable</span><br><span class="line">error: required key missing from keyring</span><br><span class="line">error: failed to commit transaction (unexpected error)</span><br><span class="line">Errors occurred, no packages were upgraded.</span><br></pre></td></tr></table></figure></p>
-<p>应该是archlinux在安装某些包时候需要key验证，按照以下方法操作，重新生成key<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman-key --init (根据wiki说明，初始化keyring需要一个叫做entropy的东西，要生成entropy需要我们随机操作，入疯狂敲击键盘和移动鼠标，做大范围的文件搜索等，不然会需要等很久)</span><br><span class="line">pacman-key --populate</span><br></pre></td></tr></table></figure></p>
-<p>如此操作一番，可以安装git了，接着clone skynet -_-~</p>
-<p>接下来正式安装：这里参考@吓人的猿的系列文章，写的对于刚接触的人来说非常好，步骤清楚，例子也好理解<br><a href="https://blog.csdn.net/qq769651718/article/details/79432809" target="_blank" rel="noopener">https://blog.csdn.net/qq769651718/article/details/79432809</a></p>
-<p>从源码进行安装的话，需要通过gcc编译，因为这个版本的archlinux是基本安装包，不会预装很多的软件包，因此我们先要搭建gcc的编译环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cp skynet skynet.original -r //备份初始包</span><br><span class="line">pacman -S gcc</span><br><span class="line">pacman -S automake</span><br><span class="line">pacman -S make</span><br><span class="line">pacman -S libtool</span><br><span class="line">pacman -S autoconf</span><br><span class="line">pacman -S libreadline-dev</span><br></pre></td></tr></table></figure></p>
-<p>进入skynet目录，make linux</p>
-<p>这是时候会自动clone github上的jemalloc模块库（我… -_-~ 这TMD国内某’戒网瘾’宽带，又掉坑里了~）</p>
-<p>在码云上也能找到镜像库，修改.gitmodules文件（可以先安装vim，自带的nano也可以），替换jemalloc的url地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp .gitmodules .gitmodules.bak</span><br><span class="line">vim .gitmodules</span><br></pre></td></tr></table></figure></p>
-<p>如果还是要等待，可以删除skynet，重skynet.original拷贝一份重新来过，因为make命令可能会在目录缓存github地址</p>
-<p>在arm上编译时间比较久，差不多半个小时，<br>中间会有多处的warning提示，虽然jemalloc5版本之后已经支持交叉编译了，不过这里还是记录一下，不知道会不会有什么后遗症（坑~），<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">In file included from include/jemalloc/internal/jemalloc_preamble.h:21,</span><br><span class="line">                 from src/prof.c:2:</span><br><span class="line">include/jemalloc/internal/hash.h: In function &apos;hash_x86_128&apos;:</span><br><span class="line">include/jemalloc/internal/../jemalloc.h:174:28: warning: attribute &apos;fallthrough&apos; not preceding a case label or default label</span><br><span class="line">  174 | #  define JEMALLOC_ATTR(s) __attribute__((s))</span><br><span class="line">      |                            ^~~~~~~~~~~~~</span><br><span class="line">include/jemalloc/internal/jemalloc_internal_macros.h:45:30: note: in expansion of macro &apos;JEMALLOC_ATTR&apos;</span><br><span class="line">   45 | #define JEMALLOC_FALLTHROUGH JEMALLOC_ATTR(fallthrough);</span><br><span class="line">      |                              ^~~~~~~~~~~~~</span><br><span class="line">include/jemalloc/internal/hash.h:202:7: note: in expansion of macro &apos;JEMALLOC_FALLTHROUGH&apos;</span><br><span class="line">  202 |       JEMALLOC_FALLTHROUGH</span><br><span class="line">      |       ^~~~~~~~~~~~~~~~~~~~</span><br></pre></td></tr></table></figure></p>
-<p>编译完成后，运行一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./skynet examples/config</span><br></pre></td></tr></table></figure></p>
-<p>skynet自带的lua是5.3.5版本的，在skynet/3rd/lua下面，因为skynet是用lua和C写的，后续会经常接触lua的编码，所有这个目录需要注意，现在来运行一下测试代码,先编译lua虚拟机<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd skynet/3rd/lua/ </span><br><span class="line">make linux</span><br><span class="line">ls -al 查看带有x标识符运行权限的文件，应该会有包含lua 和luac两个文件，说明编译成功</span><br></pre></td></tr></table></figure></p>
-<p>退回 skynet主目录，所有的基于skynet服务的命令运行都需要在skynet中运行,因为example/config.path中定义了root的路径，这个是要注意的，当然config文件也是可以修改的，clinet.lua这个客户端需要和服务端交流，我们开启多一个窗口来进行，这个先安装tmux，也可以使用screen，二选一<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s skynet_server</span><br></pre></td></tr></table></figure></p>
-<p>如果报错 tmux: need UTF-8 locale (LC_CTYPE) but have ANSI_X3.4-1968</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">locale -a \\查看本地化配置，tmux是需要UTF-8的，嗯...-_-</span><br><span class="line">vim /etc/locale.gen \\取消en_US.UFT-8 UTF-8注释保存退出</span><br><span class="line">locale-gen</span><br></pre></td></tr></table></figure>
-<p>补充意外可以进入tmxu了，tmux具体命令可以看文档，这里说一下怎么跳转和退出,ctrl+b 是前置键，按下之后需要松开的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl+b s \\查看所有的终端</span><br><span class="line">ctrl+b d \\退出当前终端</span><br><span class="line">tmux at -t skynet_server \\回到名字为skynet_server的终端</span><br></pre></td></tr></table></figure></p>
-<p>先开启skynet服务，然后运行client.lua，一个socket的实例就运行起来了 ^_^</p>
+        <h1 id="整理VSCode快捷键-ShortCut"><a href="#整理VSCode快捷键-ShortCut" class="headerlink" title="整理VSCode快捷键(ShortCut)"></a>整理VSCode快捷键(ShortCut)</h1><p>快捷面板，可以找到快捷键设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+shift+p</span><br></pre></td></tr></table></figure></p>
+<p>启用多个光标：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alt+LeftMouseButton 或 MiddleMouseButton</span><br></pre></td></tr></table></figure></p>
+<p>启用连续多个光标：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shift+alt+LeftMouseButton 或 shift+MiddleMouseButton</span><br></pre></td></tr></table></figure></p>
+<p>多光标行尾对齐：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shift+alt+i</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Skynet/记录在Archlinux上搭建skynet/" data-id="ck81v17ce002xmoupywdslikx" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/VsCode/整理VSCode快捷键(ShortCut)/" data-id="ck8othohq000y30upxg1fkfiz" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Archlinux/">Archlinux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/shortcut/">shortcut</a></li></ul>
 
     </footer>
   </div>

@@ -7,18 +7,18 @@
   
   <title>整理ADB工具命令 | HELONGWO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="整理adb工具命令查看帮助：1adb --help 查看连接设备：1adb devices 开启无线网络连接：1adb tcpip ip_address:port 使用无线网络连接：1adb connect ip_address:port 倒出配置：1dumpsys 使用dumpsys 命令查找app启动入口(注意 Activity Resolver Table: 下的 android.inten">
+  <meta name="description" content="整理adb工具命令查看帮助：1adb --help 查看连接设备：1adb devices 开启无线网络连接：1adb tcpip port （默认5555） 使用无线网络连接：1adb connect ip_address 连接shell：1adb -s 指定设备 shell 倒出配置：1dumpsys 使用dumpsys 命令查找app启动入口(注意 Activity Resolver Tab">
 <meta name="keywords" content="Android,ADB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="整理ADB工具命令">
 <meta property="og:url" content="https://kightdgithub.github.io/Helongwo/Android/整理ADB工具命令/index.html">
 <meta property="og:site_name" content="HELONGWO">
-<meta property="og:description" content="整理adb工具命令查看帮助：1adb --help 查看连接设备：1adb devices 开启无线网络连接：1adb tcpip ip_address:port 使用无线网络连接：1adb connect ip_address:port 倒出配置：1dumpsys 使用dumpsys 命令查找app启动入口(注意 Activity Resolver Table: 下的 android.inten">
+<meta property="og:description" content="整理adb工具命令查看帮助：1adb --help 查看连接设备：1adb devices 开启无线网络连接：1adb tcpip port （默认5555） 使用无线网络连接：1adb connect ip_address 连接shell：1adb -s 指定设备 shell 倒出配置：1dumpsys 使用dumpsys 命令查找app启动入口(注意 Activity Resolver Tab">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-06T17:01:34.424Z">
+<meta property="og:updated_time" content="2020-04-06T19:53:15.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="整理ADB工具命令">
-<meta name="twitter:description" content="整理adb工具命令查看帮助：1adb --help 查看连接设备：1adb devices 开启无线网络连接：1adb tcpip ip_address:port 使用无线网络连接：1adb connect ip_address:port 倒出配置：1dumpsys 使用dumpsys 命令查找app启动入口(注意 Activity Resolver Table: 下的 android.inten">
+<meta name="twitter:description" content="整理adb工具命令查看帮助：1adb --help 查看连接设备：1adb devices 开启无线网络连接：1adb tcpip port （默认5555） 使用无线网络连接：1adb connect ip_address 连接shell：1adb -s 指定设备 shell 倒出配置：1dumpsys 使用dumpsys 命令查找app启动入口(注意 Activity Resolver Tab">
   
     <link rel="alternate" href="/Helongwo/atom.xml" title="HELONGWO" type="application/atom+xml">
   
@@ -89,8 +89,9 @@
       
         <h1 id="整理adb工具命令"><a href="#整理adb工具命令" class="headerlink" title="整理adb工具命令"></a>整理adb工具命令</h1><p>查看帮助：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb --help</span><br></pre></td></tr></table></figure></p>
 <p>查看连接设备：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure></p>
-<p>开启无线网络连接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb tcpip ip_address:port</span><br></pre></td></tr></table></figure></p>
-<p>使用无线网络连接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb connect ip_address:port</span><br></pre></td></tr></table></figure></p>
+<p>开启无线网络连接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb tcpip port （默认5555）</span><br></pre></td></tr></table></figure></p>
+<p>使用无线网络连接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb connect ip_address</span><br></pre></td></tr></table></figure></p>
+<p>连接shell：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb -s 指定设备 shell</span><br></pre></td></tr></table></figure></p>
 <p>倒出配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dumpsys</span><br></pre></td></tr></table></figure></p>
 <p>使用dumpsys 命令查找app启动入口(注意 Activity Resolver Table: 下的 android.intent.action.MAIN: 之后一般包含的就是启动activity);</p>
 <p>启动app：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">am start &#123;包(package)名&#125;/&#123;包名&#125;.&#123;活动(activity)名称&#125;</span><br></pre></td></tr></table></figure></p>
@@ -109,15 +110,20 @@
     
 <nav id="article-nav">
   
-    <a href="/Helongwo/Android/整理AndoirdSDK工具命令/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Helongwo/Git/整理Git命令/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          整理AndroidSDK工具命令
+          整理Git命令
         
       </div>
     </a>
   
+  
+    <a href="/Helongwo/Unity3D/有关monobehavior脚本/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Unity3D之有关MonoBehaviour脚本</div>
+    </a>
   
 </nav>
 

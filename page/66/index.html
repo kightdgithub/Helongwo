@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3D之onclickEvent" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3d之ScriptableObject的限制" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之onclickEvent/">Unity3D之onclickEvent</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3d之ScriptableObject的限制/">Unity3d之ScriptableObject的限制</a>
     </h1>
   
 
@@ -84,18 +84,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3D之onclickEvent"><a href="#Unity3D之onclickEvent" class="headerlink" title="Unity3D之onclickEvent"></a>Unity3D之onclickEvent</h1><p>申明一个继承UIBehaviour和IPointerClickHandler</p>
-<p>申明一个自定义的UnityEvent类型<br>[Serializable] public class OnClickEvent : UnityEvent<baseuislot> { }</baseuislot></p>
-<p>申明对象<br>public OnClickEvent onClick = new OnClickEvent();</p>
-<p>实现点击方法<br>void IPointerClickHandler.OnPointerClick(PointerEventData eventData)<br>    {<br>        this.onClick.Invoke(this);<br>    }</p>
+        <h1 id="Unity3d之ScriptableObject的限制"><a href="#Unity3d之ScriptableObject的限制" class="headerlink" title="Unity3d之ScriptableObject的限制"></a>Unity3d之ScriptableObject的限制</h1><p>继承ScriptableObject的类 不可以正常的进行实例化,它们的实例都是游unity3d类控制的.</p>
+<p><a href="https://blog.csdn.net/candycat1992/article/details/52181814" target="_blank" rel="noopener">https://blog.csdn.net/candycat1992/article/details/52181814</a> –一些常见用法</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之onclickEvent/" data-id="ck81v17cx003umoupoylde17h" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3d之ScriptableObject的限制/" data-id="ck81v17da004dmoup371smevu" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Event/">Event</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/ScriptableObject/">ScriptableObject</a></li></ul>
 
     </footer>
   </div>

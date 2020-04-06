@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Other/整理ffmpeg工具命令" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Skynet/Skynet基础参考" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a>
+    <a class="article-category-link" href="/Helongwo/categories/Skynet/">Skynet</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Other/整理ffmpeg工具命令/">整理ffmpeg工具命令</a>
+      <a class="article-title" href="/Helongwo/Skynet/Skynet基础参考/">Skynet基础参考</a>
     </h1>
   
 
@@ -84,38 +84,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="整理ffmpeg工具命令"><a href="#整理ffmpeg工具命令" class="headerlink" title="整理ffmpeg工具命令"></a>整理ffmpeg工具命令</h1><p>此工具可以在Github上找到源码:<a href="https://github.com/FFmpeg/FFmpeg" target="_blank" rel="noopener">https://github.com/FFmpeg/FFmpeg</a></p>
-<p>在ffmpeg官网可以下载Windows执行文件:<a href="https://ffmpeg.org/download.html" target="_blank" rel="noopener">https://ffmpeg.org/download.html</a></p>
-<p>这里使用的版本是 ffmpeg-4.1-win64-static</p>
-<p>基本用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mp4 //查看视频信息</span><br><span class="line">ffmpeg -i input.mp4 output.avi //转换格式</span><br></pre></td></tr></table></figure></p>
-<p>视频转为Gif,更改后缀名即可;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mp4 output.gif</span><br></pre></td></tr></table></figure></p>
-<p>压缩文件大小:(关于视频文件的参数和大小的关系,pc9319这篇博文写的较详细了:<a href="https://blog.csdn.net/pc9319/article/details/79621352" target="_blank" rel="noopener">https://blog.csdn.net/pc9319/article/details/79621352</a>)</p>
-<ul>
-<li><p>缩小分辨率(resolution), 参数 “-s”, 例如缩小为(240x160);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mp4 -s 240x160 output.avi</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>减少帧数,(对于Gif没什么用),参数 “-r” , 例如减少为(10帧);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mp4 -s 240x160 -r 10 output.avi</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>降低码率,(对于Gif没什么用),参数 “-b” , 例如设置为512K;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mp4 -s 240x160 -r 10 -b 512K output.avi</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>参看</p>
-<p><a href="http://cassidy.codes/blog/2017/04/25/ffmpeg-frames-to-gif-optimization/" target="_blank" rel="noopener">http://cassidy.codes/blog/2017/04/25/ffmpeg-frames-to-gif-optimization/</a><br><a href="http://cassidy.codes/blog/2017/04/25/ffmpeg-frames-to-gif-optimization/" target="_blank" rel="noopener">http://cassidy.codes/blog/2017/04/25/ffmpeg-frames-to-gif-optimization/</a></p>
-<p><a href="https://superuser.com/questions/1049606/reduce-generated-gif-size-using-ffmpeg" target="_blank" rel="noopener">https://superuser.com/questions/1049606/reduce-generated-gif-size-using-ffmpeg</a><br><a href="https://ffmpeg.org/ffmpeg-all.html#paletteuse" target="_blank" rel="noopener">https://ffmpeg.org/ffmpeg-all.html#paletteuse</a></p>
-<p><a href="https://medium.com/@colten_jackson/doing-the-gif-thing-on-debian-82b9760a8483" target="_blank" rel="noopener">https://medium.com/@colten_jackson/doing-the-gif-thing-on-debian-82b9760a8483</a></p>
-<p>视频裁剪<br><a href="http://www.cnblogs.com/yongfengnice/p/7095846.html" target="_blank" rel="noopener">http://www.cnblogs.com/yongfengnice/p/7095846.html</a></p>
-<p>压缩<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//直接压缩</span><br><span class="line">ffmpeg.exe -i input.jpg out.jpg</span><br><span class="line">//指定目标大小压缩</span><br><span class="line">ffmpeg.exe -i input.jpg -fs 25K out.jpg</span><br><span class="line">//一个拿色板的例子</span><br><span class="line">ffmpeg.exe -i input.jpg -vf palettegen=max_colors=256:stats_mode=single -y palettegen.jpg</span><br><span class="line">//根据色板来压缩</span><br><span class="line">ffmpeg.exe -i input.jpg -i palettegen.jpg -lavfi &quot;[0][1:v] paletteuse&quot; -pix_fmt pal8 -y out.jpg</span><br></pre></td></tr></table></figure></p>
-<p>还存在一个兄弟工具ffprobe，配合使用可以得到更高质量和更小体积的图片<br><a href="https://www.cnblogs.com/toumingbai/p/8298289.html" target="_blank" rel="noopener">https://www.cnblogs.com/toumingbai/p/8298289.html</a></p>
+        <h1 id="Skynet基础参考"><a href="#Skynet基础参考" class="headerlink" title="Skynet基础参考"></a>Skynet基础参考</h1><p><a href="https://blog.csdn.net/qq769651718/article/details/79432793" target="_blank" rel="noopener">https://blog.csdn.net/qq769651718/article/details/79432793</a><br>–入门</p>
+<p><a href="https://blog.jiandan.ren/blog/2015/05/skynet-api-skynet-lua/#more-108" target="_blank" rel="noopener">https://blog.jiandan.ren/blog/2015/05/skynet-api-skynet-lua/#more-108</a>   –查询API</p>
+<p><a href="https://blog.csdn.net/linshuhe1/article/details/70186603" target="_blank" rel="noopener">https://blog.csdn.net/linshuhe1/article/details/70186603</a>    –skynet protobuf</p>
+<p><a href="https://www.cnblogs.com/sifenkesi/p/4045392.html" target="_blank" rel="noopener">https://www.cnblogs.com/sifenkesi/p/4045392.html</a>    –protogen</p>
+<p><a href="https://www.zybuluo.com/havonz/note/564563#%E5%BC%95%E5%85%A5%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9D%97-require" target="_blank" rel="noopener">https://www.zybuluo.com/havonz/note/564563#%E5%BC%95%E5%85%A5%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9D%97-require</a>   –lua手册</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Other/整理ffmpeg工具命令/" data-id="ck81v17cc002smoupw9l8u1r5" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Skynet/Skynet基础参考/" data-id="ck8othohs001130uph05g5he9" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/ffmpeg/">ffmpeg</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/lua/">lua</a></li></ul>
 
     </footer>
   </div>

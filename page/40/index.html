@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Other/windows系统密钥修改" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Other/使用命令行离线安装Nuget包" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Windows/">Windows</a>
+    <a class="article-category-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Other/windows系统密钥修改/">windows系统密钥修改</a>
+      <a class="article-title" href="/Helongwo/Other/使用命令行离线安装Nuget包/">使用命令行离线安装Nuget包</a>
     </h1>
   
 
@@ -84,16 +84,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="windows系统密钥修改"><a href="#windows系统密钥修改" class="headerlink" title="windows系统密钥修改"></a>windows系统密钥修改</h1><p>进入管理员命令提示符后，直接在CMD窗口里输入：<br>slmgr /upk 命令</p>
-<p>安装密钥,kms专业版密钥<br>slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX </p>
+        <h1 id="使用命令行离线安装Nuget包"><a href="#使用命令行离线安装Nuget包" class="headerlink" title="使用命令行离线安装Nuget包"></a>使用命令行离线安装Nuget包</h1><p>下载nuget包以及依赖包：<br><a href="https://www.nuget.org/" target="_blank" rel="noopener">https://www.nuget.org/</a></p>
+<p>找到nuget缓存目录：<br>C:\Users\Alex\AppData\Local\NuGet\Cache</p>
+<p>安装命令：<br>Install-Package oracle.manageddataaccess.core.2.19.60 -Source C:\Users\Administrator\Downloads\ C:\Users\Alex\AppData\Local\NuGet\Cache\</p>
+<p>安装包安装命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet Install-Package Oracle.ManagedDataAccess.Core -Version 2.19.60</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Other/windows系统密钥修改/" data-id="ck81v17c8002kmouptaq9437a" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Other/使用命令行离线安装Nuget包/" data-id="ck8othohj000o30upw8u3e1lu" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Windows/">Windows</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Nuget/">Nuget</a></li></ul>
 
     </footer>
   </div>

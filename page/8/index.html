@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-CSharp/理解C#之事件系统" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-CSharp/理解C#之文件读写(IO)" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/C/">C#</a>
+    <a class="article-category-link" href="/Helongwo/categories/CShape/">CShape</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/CSharp/理解C#之事件系统/">理解C#之事件系统</a>
+      <a class="article-title" href="/Helongwo/CSharp/理解C#之文件读写(IO)/">C#之文件读写</a>
     </h1>
   
 
@@ -84,15 +84,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>C# 事件系统是基于观察者模式的</p>
+        <h1 id="C-之文件读写"><a href="#C-之文件读写" class="headerlink" title="C#之文件读写"></a>C#之文件读写</h1><p>Windows上的目录分隔符</p>
+<p>windows采用反斜杠 “\” 作为分隔符,但是C#是将 “\” 作为转义字符的,避免混淆的方法如下:</p>
+<p>1,使用 “\“ 来表示目录分隔符.</p>
+<p>2,在字符串前使用 @ 符号来告诉编译器将 “\” 作为普通字符处理; (@”””xxxx””” 输出的是什么?)</p>
+<p>3,使用 .NET path类,它提供了一系列的分隔符号工具,这也是最不容易出错的一种方法:</p>
+<p>  PathSeperator（路径分隔符，如”;”）;<br>  DirectorySeparatorChar（目录分隔符，如”\”）;<br>  VolumeSeparator（卷分隔符，如”:”）;<br>  AltDirectorySeparator（替换目录分隔符，如”/”）;<br>  Combine (路径拼接,可以自动完成分隔符的添加或者删除)</p>
+<p>Windows上的换行符</p>
+<p>Windows中使用 ‘\r\n’ 来表示 “回车”符号 和 “换行” 符;</p>
+<p>.Net System.Environment提供了方便换行方法;<br>  NewLine字符串属性: 相当与 ‘\r\n’;</p>
+<p>File类<br>文件流类,可以使用静态方法Create(),创建指定文件名并给出路径名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static FileStream Create(string path);</span><br></pre></td></tr></table></figure></p>
+<p>Directory类<br>CreateDirectory()创建指定文件夹,需要给出路径名称;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static DirectoryInfo CreateDirectory(string path);</span><br></pre></td></tr></table></figure></p>
+<p>GetFiles()用来获取文件,返回一个包含文件名称的字符串数组,有两个重载方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public static string[] GetFiles(string path, string searchPattern); //使用路径和正则匹配来获取文件</span><br><span class="line">public static string[] GetFiles(string path, string searchPattern, SearchOption searchOption); //使用路径,正则匹配以及搜索规则来获取文件</span><br></pre></td></tr></table></figure></p>
+<p>GetFileSystemEntries()返回指定目录下的文件的文件名的字符串数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static string[] GetFileSystemEntries(string path);//返回指定目录以及子目录下的文件的文件名</span><br></pre></td></tr></table></figure></p>
+<p>streamWriter类<br>最常用的输出类,writeline()方法方便而且实用</p>
+<p>StreamReader类<br>文件流类;<br>Read()<br>ReadLine()<br>ReadEnd()</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/理解C#之事件系统/" data-id="ck8othogz000430upw8euxh4t" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/理解C#之文件读写(IO)/" data-id="ck81v17av0008moupebhut6kj" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Delegate/">Delegate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Event/">Event</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/IO/">IO</a></li></ul>
 
     </footer>
   </div>
