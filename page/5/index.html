@@ -37,10 +37,6 @@
         <a href="/Helongwo/" id="logo">HELONGWO</a>
       </h1>
       
-        <h2 id="subtitle-wrap">
-          <a href="/Helongwo/" id="subtitle">好记性不如烂笔头.(937682010@139.com)</a>
-        </h2>
-      
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
@@ -64,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-CSharp/CSharp之构造函数" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-CSharp/理解C#之Enum" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a>
+    <a class="article-category-link" href="/Helongwo/categories/CShape/">CShape</a>
   </div>
 
   </div>
@@ -80,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/CSharp/CSharp之构造函数/">C#之构造函数</a>
+      <a class="article-title" href="/Helongwo/CSharp/理解C#之Enum/">理解C#之Enum</a>
     </h1>
   
 
@@ -88,17 +84,64 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>每个类中都存在构造函数,默认是隐藏的,可显示地书写出来.<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">yourBaseClassName</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">yourBaseClassName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>隐式的构造函数可以被覆盖,若覆写一个带参数的构造函数,隐式的构造函数将被覆盖,不可被继承类调用,除非显示的将无参默认构造函数写出来.<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">yourBaseClassName</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">yourBaseClassName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">yourBaseClassName</span><span class="params">(Type param)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>若父类中没有无参构造函数(也就是在被覆写的情况下也没有显示写出来的情况),子类中将不得不使用base关键字来显示的来可选择地调用父类带参构造函数,此时子类与父类的构造函数格式应该是一致的(参数个数相同).<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">yourBaseClassName</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="title">yourBaseClassName</span><span class="params">(Type param)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">yourClassName</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  public yourBaseClassName(Type param) : base(param)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="理解C-之Enum"><a href="#理解C-之Enum" class="headerlink" title="理解C#之Enum"></a>理解C#之Enum</h1><p><a href="https://www.cnblogs.com/pato/archive/2011/08/15/2139705.html" target="_blank" rel="noopener">https://www.cnblogs.com/pato/archive/2011/08/15/2139705.html</a></p>
+<p>Enum为枚举提供基类，其基础类型可以是除 Char 外的任何整型。如果没有显式声明基础类型，则使用 Int32。编程语言通常提供语法来声明由一组已命名的常数和它们的值组成的枚举。</p>
+<p>注意：枚举类型的基类型是除 Char 外的任何整型，所以枚举类型的值是整型值。</p>
+<p>Enum 提供一些实用的静态方法：</p>
+<p>(1)比较枚举类的实例的方法</p>
+<p>(2)将实例的值转换为其字符串表示形式的方法</p>
+<p>(3)将数字的字符串表示形式转换为此类的实例的方法</p>
+<p>(4)创建指定枚举和值的实例的方法。</p>
+<p>举例：enum Colors { Red, Green, Blue, Yellow };</p>
+<p>Enum–&gt;String</p>
+<p>(1)利用Object.ToString()方法：如Colors.Green.ToString()的值是”Green”字符串；</p>
+<p>(2)利用Enum的静态方法GetName与GetNames：</p>
+<p>public static string GetName(Type enumType,Object value)</p>
+<p>public static string[] GetNames(Type enumType)</p>
+<p>例如：Enum.GetName(typeof(Colors),3))与Enum.GetName(typeof(Colors), Colors.Blue))的值都是”Blue”</p>
+<p>Enum.GetNames(typeof(Colors))将返回枚举字符串数组。</p>
+<p>String–&gt;Enum</p>
+<p>(1)利用Enum的静态方法Parse：</p>
+<p>public static Object Parse(Type enumType,string value)</p>
+<p>例如：(Colors)Enum.Parse(typeof(Colors), “Red”)</p>
+<p>Enum–&gt;Int</p>
+<p>(1)因为枚举的基类型是除 Char 外的整型，所以可以进行强制转换。</p>
+<p>例如：(int)Colors.Red, (byte)Colors.Green</p>
+<p>Int–&gt;Enum</p>
+<p>(1)可以强制转换将整型转换成枚举类型。</p>
+<p>例如：Colors color = (Colors)2 ，那么color即为Colors.Blue</p>
+<p>(2)利用Enum的静态方法ToObject。</p>
+<p>public static Object ToObject(Type enumType,int value)</p>
+<p>例如：Colors color = (Colors)Enum.ToObject(typeof(Colors), 2)，那么color即为Colors.Blue</p>
+<p>判断某个整型是否定义在枚举中的方法：Enum.IsDefined</p>
+<p>public static bool IsDefined(Type enumType,Object value)</p>
+<p>例如：Enum.IsDefined(typeof(Colors), n))</p>
+<p>==========================================================</p>
+<p>枚举类型<br>C#中应该多使用枚举类型，有利于代码的可读性。</p>
+<hr>
+<p>声明格式: 根据Naming rule violation说明,枚举命名的头需要建议大写,这可以在visualstudio2017的提示中看到;<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Name : type&#123;</span><br><span class="line">  key = &lt;value1&gt;,</span><br><span class="line">  key = &lt;value2&gt;,</span><br><span class="line">  key = &lt;value3&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><em>等号左边相当于变量引用,右边为变量值,type表示这个枚举中的数据类型,VS2017的提示中包括{byte,sbyte,short,ushort,int,uint,long,ulong}</em></p>
+<p>例如:<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Number : <span class="keyword">int</span></span><br><span class="line">        &#123;</span><br><span class="line">            zero,</span><br><span class="line">            one,</span><br><span class="line">            two</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>它也可能是这样的:<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Number&#123;zero,one,two&#125;</span><br></pre></td></tr></table></figure><br><em>默认的类型应该为int,并且数值是按照声明顺序从0依次递增</em></p>
+<p>布尔类型中,数据以类似键值对的方式存储,通过’key’能找到’value’,并且通过’value’也能找到key,例如<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Number NumberName = (Number)<span class="number">0</span>;</span><br></pre></td></tr></table></figure><br>那么,LanguageName的值将会是’zero’。</p>
+<hr>
+<p>问:当在类中定义一个枚举时, 为什么visualstudio2017会提示建议将枚举定义成为一个类中?这样做是规范还是有别的好处?<br>答:</p>
+<blockquote>
+<p>枚举使用enum关键字来声明，与类同级。枚举本身可以有修饰符，但枚举的成员始终是公共的，不能有访问修饰符。枚举本身的修饰符仅能使用public和internal。</p>
+</blockquote>
+<p>所以按照类的格式来说,将枚举单独在文本上分开来写(<em>注意不是问题中说定义成为一个类</em>),似乎更为合理。</p>
+<p>问:整形,布尔类型与枚举类型有什么关系?<br>答:</p>
+<blockquote>
+<p>枚举是值类型，隐式继承自System.Enum，不能手动修改。System.Enum本身是引用类型，继承自System.ValueType。</p>
+</blockquote>
+<p>本文中关于枚举类型文本排版和值类型关系引用了一下两处博文,博文中还详细讲解了大量的细节知识,还有很多可以学习的地方。<br><a href="https://www.cnblogs.com/kissdodog/archive/2013/01/16/2863515.html" title="C#枚举" target="_blank" rel="noopener">逆心</a><br><a href="https://www.cnblogs.com/woaixiaozhi/p/5116137.html" title="c#中的值类型和引用类型" target="_blank" rel="noopener">风一样的人生</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/CSharp之构造函数/" data-id="cjpex937j0005h4dk76n33j2d" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/理解C#之Enum/" data-id="ck81v17ac0003moupshuelitv" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/构造函数/">构造函数</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/枚举/">枚举</a></li></ul>
 
     </footer>
   </div>
@@ -111,7 +154,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/Helongwo/page/4/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/3/">3</a><a class="page-number" href="/Helongwo/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/Helongwo/page/6/">6</a><a class="page-number" href="/Helongwo/page/7/">7</a><a class="page-number" href="/Helongwo/page/8/">8</a><a class="extend next" rel="next" href="/Helongwo/page/6/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/Helongwo/page/4/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/3/">3</a><a class="page-number" href="/Helongwo/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/Helongwo/page/6/">6</a><a class="page-number" href="/Helongwo/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/98/">98</a><a class="extend next" rel="next" href="/Helongwo/page/6/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -122,7 +165,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
     </div>
   </div>
 
@@ -132,7 +175,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/CanvasGroup/">CanvasGroup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Cursor/">Cursor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/List/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Mariadb/">Mariadb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/MonoBehaviour/">MonoBehaviour</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Mysql/">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/UGUI/">UGUI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/单例/">单例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/对象池/">对象池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/常量/">常量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/构造函数/">构造函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/集合/">集合</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/ADB/">ADB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/APT/">APT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Animator/">Animator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Archlinux/">Archlinux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/BehaviorDesigner/">BehaviorDesigner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/BehaviorTree/">BehaviorTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/CanvasGroup/">CanvasGroup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Chroot/">Chroot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Cursor/">Cursor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Delegate/">Delegate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/DoTween/">DoTween</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Error/">Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Event/">Event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Exception/">Exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Golang/">Golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/IO/">IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Inventory/">Inventory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Json-序列化-反序列化/">Json,序列化,反序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/ListJson/">ListJson</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Lua/">Lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/MVCS/">MVCS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/MonoBehaviour/">MonoBehaviour</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Navigation/">Navigation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Nodejs/">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Nuget/">Nuget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Nunit/">Nunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Profiler/">Profiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/RectTransform/">RectTransform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Regexp/">Regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Resource/">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Samba/">Samba</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/ScriptableObject/">ScriptableObject</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Skinmeshrender/">Skinmeshrender</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Sprite/">Sprite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/StrangeIOC/">StrangeIOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Tmux/">Tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/UGUI/">UGUI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/UI/">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/UML/">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Unity3D/">Unity3D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/UnityEvent类/">UnityEvent类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Unity版本/">Unity版本</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Version/">Version</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Version-Control/">Version Control</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Vim/">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/VisualStudio/">VisualStudio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Vscode/">Vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/assestbundlesBrowser/">assestbundlesBrowser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/async/">async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/bat/">bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/chcp/">chcp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/collider/">collider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/editor/">editor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/encode/">encode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/ffmpeg/">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/light/">light</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/lua/">lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/plugins/">plugins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/shortcut/">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/sqlite/">sqlite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/table/">table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/transform/">transform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/事件系统/">事件系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/动画系统/">动画系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/协程/">协程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/单例/">单例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/场景加载/">场景加载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/坐标轴/">坐标轴</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/对象池/">对象池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/异步/">异步</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/插件/">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/服务器/">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/构造函数/">构造函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/点击事件/">点击事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/碰撞体/">碰撞体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/结构体/">结构体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/编程/">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/设计/">设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/资源管理/">资源管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/队列/">队列</a></li></ul>
     </div>
   </div>
 
@@ -145,7 +188,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 HELONGWO(937682010@139.com)<br>
+      &copy; 2020 HELONGWO<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

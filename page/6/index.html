@@ -37,10 +37,6 @@
         <a href="/Helongwo/" id="logo">HELONGWO</a>
       </h1>
       
-        <h2 id="subtitle-wrap">
-          <a href="/Helongwo/" id="subtitle">好记性不如烂笔头.(937682010@139.com)</a>
-        </h2>
-      
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
@@ -64,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/有关monobehavior脚本" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-CSharp/理解C#之Queue" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Unity3D/">Unity3D</a>
+    <a class="article-category-link" href="/Helongwo/categories/Csharp/">Csharp</a>
   </div>
 
   </div>
@@ -80,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/有关monobehavior脚本/">Unity3D之有关MonoBehaviour脚本</a>
+      <a class="article-title" href="/Helongwo/CSharp/理解C#之Queue/">理解CSharp之Queue</a>
     </h1>
   
 
@@ -88,18 +84,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>MonoBehaviour 的生命周期 必须是要挂载在Unity3D物体上才能正常运转,不继承MonoBehaviour的类是不可以被挂载的.</p>
-<p>MonoBehaviour的 实例化也是由unity来管理,一旦挂载了,物体可以轻松通过<br><figure class="highlight c"><figcaption><span>[#]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GetComponent&lt;<span class="class"><span class="keyword">class</span> <span class="title">where</span> :</span> MonoBehaviour&gt;();</span><br></pre></td></tr></table></figure><br>来轻松获取实例.</p>
-<p>基于这样的特性,需要单例化的类是不适合继承MonoBehaviour的,当然可以继承但是不挂载在任何一个物体上面,也不使用其生命周期方法.</p>
-<p>MonoBehaviour一个奇怪的要求是, 继承时需要放在 符号 : 之后第一位,VS2017 中的提示是MonoBehaviour要作为第一约束, 并不明白第一约束指的是什么.</p>
+        <h1 id="理解CSharp之Queue"><a href="#理解CSharp之Queue" class="headerlink" title="理解CSharp之Queue"></a>理解CSharp之Queue</h1><p>Queue队列的规则为先进先出。它不能按索引访问元素，因为没有实现 IList，ICollection,不能使用Add和Remove。</p>
+<p>Enqueue():在队列的末端添加元素</p>
+<p>　　Dequeue():在队列的头部读取和删除一个元素，注意，这里读取元素的同时也删除了这个元素。如果队列中不再有任何元素。就抛出异常</p>
+<p>　　Peek():在队列的头读取一个元素，但是不删除它</p>
+<p>　　Count：返回队列中的元素个数</p>
+<p>　　TrimExcess():重新设置队列的容量，因为调用Dequeue方法读取删除元素后不会重新设置队列的容量。</p>
+<p>　　Contains():确定某个元素是否在队列中</p>
+<p>　　CopyTo():把元素队列复制到一个已有的数组中</p>
+<p>　　ToArray():返回一个包含元素的新数组</p>
+<pre><code>Void Clear():清除队列
+</code></pre><p>从 Queue 中移除所有对象。</p>
+<p>1、Queue 的容量是 Queue 可以保存的元素数。Queue 的默认初始容量为 32。向 Queue 添加元素时，将通过重新分配来根据需要自动增大容量。可通过调用 TrimToSize 来减少容量。等比因子是当需要更大容量时当前容量要乘以的数字。在构造 Queue 时确定增长因子。默认增长因子为 2.0。</p>
+<p>2、Queue 能接受空引用作为有效值，并且允许重复的元素。</p>
+<p>3、空引用可以作为值添加到 Queue。若要区分空值和 Queue 结尾，请检查 Count 属性或捕捉 Queue 为空时引发的 InvalidOperationException异常。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/有关monobehavior脚本/" data-id="cjpex9388001dh4dknvxv1xpw" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/理解C#之Queue/" data-id="ck81v17am0004mouphtfmbahm" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/MonoBehaviour/">MonoBehaviour</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/队列/">队列</a></li></ul>
 
     </footer>
   </div>
@@ -112,7 +118,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/Helongwo/page/5/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/4/">4</a><a class="page-number" href="/Helongwo/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/Helongwo/page/7/">7</a><a class="page-number" href="/Helongwo/page/8/">8</a><a class="extend next" rel="next" href="/Helongwo/page/7/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/Helongwo/page/5/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/4/">4</a><a class="page-number" href="/Helongwo/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/Helongwo/page/7/">7</a><a class="page-number" href="/Helongwo/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/98/">98</a><a class="extend next" rel="next" href="/Helongwo/page/7/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -123,7 +129,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
     </div>
   </div>
 
@@ -133,7 +139,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/CanvasGroup/">CanvasGroup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Cursor/">Cursor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/List/">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Mariadb/">Mariadb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/MonoBehaviour/">MonoBehaviour</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Mysql/">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/UGUI/">UGUI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/单例/">单例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/对象池/">对象池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/常量/">常量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/构造函数/">构造函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/集合/">集合</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/ADB/">ADB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/APT/">APT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Animator/">Animator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Archlinux/">Archlinux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/BehaviorDesigner/">BehaviorDesigner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/BehaviorTree/">BehaviorTree</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/CanvasGroup/">CanvasGroup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Chroot/">Chroot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Cursor/">Cursor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Delegate/">Delegate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/DoTween/">DoTween</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Error/">Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Event/">Event</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Exception/">Exception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Golang/">Golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/IO/">IO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Inventory/">Inventory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Json-序列化-反序列化/">Json,序列化,反序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/ListJson/">ListJson</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Lua/">Lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/MVCS/">MVCS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/MonoBehaviour/">MonoBehaviour</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Navigation/">Navigation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Nodejs/">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Nuget/">Nuget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Nunit/">Nunit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Profiler/">Profiler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/RectTransform/">RectTransform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Regexp/">Regexp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Resource/">Resource</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Samba/">Samba</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/ScriptableObject/">ScriptableObject</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Skinmeshrender/">Skinmeshrender</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Sprite/">Sprite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/StrangeIOC/">StrangeIOC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Tmux/">Tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/UGUI/">UGUI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/UI/">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/UML/">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Unity3D/">Unity3D</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/UnityEvent类/">UnityEvent类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Unity版本/">Unity版本</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Version/">Version</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Version-Control/">Version Control</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Vim/">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/VisualStudio/">VisualStudio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Vscode/">Vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/assestbundlesBrowser/">assestbundlesBrowser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/async/">async</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/bat/">bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/chcp/">chcp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/collider/">collider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/editor/">editor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/encode/">encode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/ffmpeg/">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/light/">light</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/lua/">lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/plugins/">plugins</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/shortcut/">shortcut</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/sqlite/">sqlite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/table/">table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/transform/">transform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/事件系统/">事件系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/动画系统/">动画系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/协程/">协程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/单例/">单例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/场景加载/">场景加载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/坐标轴/">坐标轴</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/对象池/">对象池</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/异步/">异步</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/插件/">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/服务器/">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/构造函数/">构造函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/点击事件/">点击事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/碰撞体/">碰撞体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/结构体/">结构体</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/编程/">编程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/设计/">设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/资源管理/">资源管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Helongwo/tags/队列/">队列</a></li></ul>
     </div>
   </div>
 
@@ -146,7 +152,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 HELONGWO(937682010@139.com)<br>
+      &copy; 2020 HELONGWO<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
