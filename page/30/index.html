@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Other/Hugo之语法" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Linux/Vim_spacevim" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Hugo/">Hugo</a>
+    <a class="article-category-link" href="/Helongwo/categories/Linux/">Linux</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Other/Hugo之语法/">Hugo之语法</a>
+      <a class="article-title" href="/Helongwo/Linux/Vim_spacevim/">为VIM 安装 spacevim 插件</a>
     </h1>
   
 
@@ -84,21 +84,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Hugo之语法"><a href="#Hugo之语法" class="headerlink" title="Hugo之语法"></a>Hugo之语法</h1><p>front matter: Markdown文件中的头部,使用 ‘—‘或者’+++’包裹起来的生命字段</p>
-<p>.Params: hugo内建变量,可以看作是front matter的集合</p>
-<hr>
-<p>config文件: 可以使用yaml,toml(默认),json三种格式;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//yaml格式</span><br><span class="line">params:</span><br><span class="line">  copyrighthtml: Copyright &amp;#xA9; 2017 John Doe. All Rights Reserved.</span><br><span class="line">  sidebarrecentlimit: 5</span><br><span class="line">  twitteruser: spf13</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//toml格式</span><br><span class="line">[params]</span><br><span class="line">  copyrighthtml = &quot;Copyright &amp;#xA9; 2017 John Doe. All Rights Reserved.&quot;</span><br><span class="line">  sidebarrecentlimit = 5</span><br><span class="line">  twitteruser = &quot;spf13&quot;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Json格式</span><br><span class="line">&#123;</span><br><span class="line">   &quot;params&quot;: &#123;</span><br><span class="line">      &quot;copyrighthtml&quot;: &quot;Copyright \u0026#xA9; 2017 John Doe. All Rights Reserved.&quot;,</span><br><span class="line">      &quot;sidebarrecentlimit&quot;: 5,</span><br><span class="line">      &quot;twitteruser&quot;: &quot;spf13&quot;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>.Site.Pages: hugo的内建变量,可以获得config文件中的字段值,可以看作是整个站点的变量合集;</p>
+        <h1 id="为VIM-安装-spacevim-插件"><a href="#为VIM-安装-spacevim-插件" class="headerlink" title="为VIM 安装 spacevim 插件"></a>为VIM 安装 spacevim 插件</h1><p>需要安装vimproc<br><a href="https://github.com/Shougo/vimproc.vim#building" target="_blank" rel="noopener">https://github.com/Shougo/vimproc.vim#building</a><br>将vimproc下载之后按照步骤解压编译，然后修改文件名称为vimfiles, 存放位置为Home目录下，一般就是通过在vim中使用vimruntimepath查询出来的路径</p>
+<p>vim 修改时提示 E21: Cannot make changes, ‘Modifiable’ is off</p>
+<p>给不能连接外网的机器安装spacevim： <a href="https://blog.csdn.net/u013033845/article/details/90904592" target="_blank" rel="noopener">https://blog.csdn.net/u013033845/article/details/90904592</a></p>
+<p><a href="https://spacevim.org/cn/quick-start-guide/#%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97" target="_blank" rel="noopener">https://spacevim.org/cn/quick-start-guide/#%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97</a></p>
+<p>curl -sLf <a href="https://spacevim.org/cn/install.sh" target="_blank" rel="noopener">https://spacevim.org/cn/install.sh</a> | bash</p>
+<p>SpaceVim中vimproc的vimproc_linux64.so未找到：<a href="https://www.cnblogs.com/zhuxiaoxi/p/8466846.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhuxiaoxi/p/8466846.html</a></p>
+<p>安装 nerd-font: <a href="https://github.com/ryanoasis/nerd-fonts#option-3-install-script" target="_blank" rel="noopener">https://github.com/ryanoasis/nerd-fonts#option-3-install-script</a></p>
+<p>字体的安装，修改spacevim的配置文件，将guifont设置为’DejaVu Sans Mono for Powerline’，将linux中的字体拷贝到windows下的字体目录内windows/fonts，putty设置使用此字体</p>
+<p>使用console-setup重新配置<br><a href="https://www.cnblogs.com/lzyws739307453/p/11795048.html" target="_blank" rel="noopener">https://www.cnblogs.com/lzyws739307453/p/11795048.html</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Other/Hugo之语法/" data-id="ck81v17c10026moupz3us1svs" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Linux/Vim_spacevim/" data-id="ckl20eyvz002kh8upe8oa9yad" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Golang/">Golang</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Vim/">Vim</a></li></ul>
 
     </footer>
   </div>
@@ -111,7 +113,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/Helongwo/page/29/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/28/">28</a><a class="page-number" href="/Helongwo/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/Helongwo/page/31/">31</a><a class="page-number" href="/Helongwo/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/98/">98</a><a class="extend next" rel="next" href="/Helongwo/page/31/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/Helongwo/page/29/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/28/">28</a><a class="page-number" href="/Helongwo/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/Helongwo/page/31/">31</a><a class="page-number" href="/Helongwo/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/101/">101</a><a class="extend next" rel="next" href="/Helongwo/page/31/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -122,7 +124,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/U3Demo/">U3Demo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
     </div>
   </div>
 
@@ -145,7 +147,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 HELONGWO<br>
+      &copy; 2021 HELONGWO<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

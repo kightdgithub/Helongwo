@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Linux/实体机安装ubuntu server 16.04" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Hexo/Hexo默认配置的修改" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Linux/">Linux</a>
+    <a class="article-category-link" href="/Helongwo/categories/Hexo/">Hexo</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Linux/实体机安装ubuntu server 16.04/">实体机安装ubuntu server 16.04</a>
+      <a class="article-title" href="/Helongwo/Hexo/Hexo默认配置的修改/">Hexo主题自定义修改</a>
     </h1>
   
 
@@ -84,20 +84,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="实体机安装ubuntu-server-16-04"><a href="#实体机安装ubuntu-server-16-04" class="headerlink" title="实体机安装ubuntu server 16.04"></a>实体机安装ubuntu server 16.04</h1><p>1，LiveCD的制作<br>在windows下使用win32diskimage制作，插入网线和无线网卡，从U盘启动LiveCD，安装过程会提醒连接网络的方式，一般的有线和无线网卡驱动都可以识别；</p>
-<p>2，修改网卡显示名称<br>查看网卡信息<br>sudo ip link<br>iwconfig<br>iw wlan0 info<br>ifconfig<br>若无线网卡名字过长，会影响之后的命令操作<br>修改网卡名称,要在网口down的状态下更改<br>sudo ip link set wlxxxxxxxxxx name wlan0</p>
-<p>3，连接无线网络<br>启动网卡<br>sudo ip link set wlan0 up<br>扫描网路<br>sudo iw dev wlan0 scan | more<br>使用wpa_passphrase生成连接配置文件<br>wpa_passphrase ssid password &gt;&gt; /etc/wpa_supplicant/wpa_supplicant.conf<br>加载配置文件<br>wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf -B<br>获取ip<br>hclient wlan0<br>查看ip信息<br>ip addr<br>驱动问题：<a href="http://blog.sina.com.cn/s/blog_61e023120100q8b1.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_61e023120100q8b1.html</a></p>
-<p>在配置完无线网络连接之后碰到”a start job is running for raise network interface”的启动提示<br>修改等待时间<br>命令：sudo vim /etc/systemd/system/network-online.target.wants/networking.service<br>将里面的TimeoutStartSec=5min 修改为TimeoutStartSec=2sec</p>
-<p>再次启动碰到”Failed to initialize driver interface”<br>忽略报错信息sudo wpa_supplicant -B -iwlan1 -c wpa_supplicant.conf -Dwext</p>
+        <h1 id="Hexo主题自定义修改"><a href="#Hexo主题自定义修改" class="headerlink" title="Hexo主题自定义修改"></a>Hexo主题自定义修改</h1><p>网站基本参数的设置,title: 显示网站标题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 网站标题</span><br><span class="line">subtitle: 网站副标题</span><br><span class="line">description: 网站描述</span><br><span class="line">keywords: SEO关键字</span><br><span class="line">author: John Doe 站主</span><br><span class="line">language: 语言</span><br><span class="line">timezone: 时区</span><br></pre></td></tr></table></figure></p>
+<p>如果不绑定自己域名,直接使用github提供的子域名,一般是要设置次级目录的,也即是要修改 URL 和 root参数,否则很可能造成CSS样式丢失;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</span><br><span class="line">url: https://GithubUserName.github.io/RepositoryName/</span><br><span class="line">root: /RepositoryName</span><br></pre></td></tr></table></figure></p>
+<p>分页设置由插件hexo-generator-index生成,其配置处在hexo的_config.yml文件;<br>per_page项设置为0时, Index首页不会进行分页,会全部显示,但会显得太过冗长;<br>order_by项 -date为按照日期倒序来显示,即新的博客会显示在前面.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">index_generator:</span><br><span class="line">  path: &apos;&apos;</span><br><span class="line">  per_page: 1</span><br><span class="line">  order_by: -date</span><br></pre></td></tr></table></figure></p>
+<p>Pagination: 设置为0时, 分类和标签页面不会进行分页,会全部显示,比较适合分类和标签的总览显示;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Pagination</span><br><span class="line">## Set per_page to 0 to disable pagination</span><br><span class="line">  per_page: 10</span><br><span class="line">  pagination_dir: page</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Linux/实体机安装ubuntu server 16.04/" data-id="ck81v17br001wmoupc173htes" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Hexo/Hexo默认配置的修改/" data-id="ckl20eyv7001gh8upyfr1c185" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Ubuntu/">Ubuntu</a></li></ul>
-
     </footer>
   </div>
   
@@ -109,7 +106,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/Helongwo/page/22/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/21/">21</a><a class="page-number" href="/Helongwo/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/Helongwo/page/24/">24</a><a class="page-number" href="/Helongwo/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/98/">98</a><a class="extend next" rel="next" href="/Helongwo/page/24/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/Helongwo/page/22/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/21/">21</a><a class="page-number" href="/Helongwo/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/Helongwo/page/24/">24</a><a class="page-number" href="/Helongwo/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/101/">101</a><a class="extend next" rel="next" href="/Helongwo/page/24/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -120,7 +117,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/U3Demo/">U3Demo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
     </div>
   </div>
 
@@ -143,7 +140,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 HELONGWO<br>
+      &copy; 2021 HELONGWO<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

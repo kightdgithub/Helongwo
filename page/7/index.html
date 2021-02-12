@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-CSharp/理解C#之事件系统" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-CSharp/理解C#之Queue" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/C/">C#</a>
+    <a class="article-category-link" href="/Helongwo/categories/Csharp/">Csharp</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/CSharp/理解C#之事件系统/">理解C#之事件系统</a>
+      <a class="article-title" href="/Helongwo/CSharp/理解C#之Queue/">理解CSharp之Queue</a>
     </h1>
   
 
@@ -84,15 +84,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>C# 事件系统是基于观察者模式的</p>
+        <h1 id="理解CSharp之Queue"><a href="#理解CSharp之Queue" class="headerlink" title="理解CSharp之Queue"></a>理解CSharp之Queue</h1><p>Queue队列的规则为先进先出。它不能按索引访问元素，因为没有实现 IList，ICollection,不能使用Add和Remove。</p>
+<p>Enqueue():在队列的末端添加元素</p>
+<p>　　Dequeue():在队列的头部读取和删除一个元素，注意，这里读取元素的同时也删除了这个元素。如果队列中不再有任何元素。就抛出异常</p>
+<p>　　Peek():在队列的头读取一个元素，但是不删除它</p>
+<p>　　Count：返回队列中的元素个数</p>
+<p>　　TrimExcess():重新设置队列的容量，因为调用Dequeue方法读取删除元素后不会重新设置队列的容量。</p>
+<p>　　Contains():确定某个元素是否在队列中</p>
+<p>　　CopyTo():把元素队列复制到一个已有的数组中</p>
+<p>　　ToArray():返回一个包含元素的新数组</p>
+<pre><code>Void Clear():清除队列
+</code></pre><p>从 Queue 中移除所有对象。</p>
+<p>1、Queue 的容量是 Queue 可以保存的元素数。Queue 的默认初始容量为 32。向 Queue 添加元素时，将通过重新分配来根据需要自动增大容量。可通过调用 TrimToSize 来减少容量。等比因子是当需要更大容量时当前容量要乘以的数字。在构造 Queue 时确定增长因子。默认增长因子为 2.0。</p>
+<p>2、Queue 能接受空引用作为有效值，并且允许重复的元素。</p>
+<p>3、空引用可以作为值添加到 Queue。若要区分空值和 Queue 结尾，请检查 Count 属性或捕捉 Queue 为空时引发的 InvalidOperationException异常。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/理解C#之事件系统/" data-id="ck8othogz000430upw8euxh4t" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/CSharp/理解C#之Queue/" data-id="ckl20eyuq000lh8upwznofp78" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Delegate/">Delegate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Event/">Event</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/队列/">队列</a></li></ul>
 
     </footer>
   </div>
@@ -105,7 +118,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/Helongwo/page/6/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/5/">5</a><a class="page-number" href="/Helongwo/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/Helongwo/page/8/">8</a><a class="page-number" href="/Helongwo/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/98/">98</a><a class="extend next" rel="next" href="/Helongwo/page/8/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/Helongwo/page/6/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/5/">5</a><a class="page-number" href="/Helongwo/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/Helongwo/page/8/">8</a><a class="page-number" href="/Helongwo/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/101/">101</a><a class="extend next" rel="next" href="/Helongwo/page/8/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -116,7 +129,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/U3Demo/">U3Demo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
     </div>
   </div>
 
@@ -139,7 +152,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 HELONGWO<br>
+      &copy; 2021 HELONGWO<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

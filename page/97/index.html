@@ -60,12 +60,12 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Git/整理Git命令" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-VsCode/手动安装vscode的依赖" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
   <div class="article-category">
-    <a class="article-category-link" href="/Helongwo/categories/Git/">Git</a>
+    <a class="article-category-link" href="/Helongwo/categories/Vscode/">Vscode</a>
   </div>
 
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Git/整理Git命令/">整理Git命令</a>
+      <a class="article-title" href="/Helongwo/VsCode/手动安装vscode的依赖/">手动安装vscode的依赖</a>
     </h1>
   
 
@@ -84,16 +84,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="整理Git命令"><a href="#整理Git命令" class="headerlink" title="整理Git命令"></a>整理Git命令</h1><p>克隆命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b gh-pages //指定分支版本</span><br></pre></td></tr></table></figure></p>
-<p>分支管理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git branch -a //查看所有，包括远程分支</span><br><span class="line">git branch //查看本地分支</span><br><span class="line">git remote -v //查看远程分支</span><br><span class="line">git checkout &quot;master&quot; //切换本地分支</span><br></pre></td></tr></table></figure></p>
+        <h1 id="手动安装vscode的依赖"><a href="#手动安装vscode的依赖" class="headerlink" title="手动安装vscode的依赖"></a>手动安装vscode的依赖</h1><p>vscode插件下载地址： <a href="https://marketplace.visualstudio.com/" target="_blank" rel="noopener">https://marketplace.visualstudio.com/</a></p>
+<p>查看C:\Users\xxx….vscode\extensions\ms-vscode.csharp-1.21.5 下的package.json可以看到需要的依赖插件包(这个应该是单个用户的全局配置文件,而一个用户如果设置了多个workshop,每一个workshop也会有自己的.vscode文件夹)</p>
+<p>主要有三个</p>
+<p>OmniSharp 智能提示用<br><a href="https://download.visualstudio.microsoft.com/download/pr/0093813b-a367-4d2a-beaf-a56ed844b4a5/6dcb3a71c29bbcf0ffff994954b2a3ee/omnisharp-win-x86-1.34.5.zip" target="_blank" rel="noopener">https://download.visualstudio.microsoft.com/download/pr/0093813b-a367-4d2a-beaf-a56ed844b4a5/6dcb3a71c29bbcf0ffff994954b2a3ee/omnisharp-win-x86-1.34.5.zip</a><br>解压之后放在用户名下的vscode\ms-vscode.csharp-1.21.5 下面 .omnisharp<br>Win10: 用户名.vscode\extensions</p>
+<p>Debugger调试用<br><a href="https://download.visualstudio.microsoft.com/download/pr/6ebd6da8-bbe3-42f7-924b-aa921730ee2f/efad9a8d86f35c3945b95b8da80845dd/coreclr-debug-win7-x64.zip" target="_blank" rel="noopener">https://download.visualstudio.microsoft.com/download/pr/6ebd6da8-bbe3-42f7-924b-aa921730ee2f/efad9a8d86f35c3945b95b8da80845dd/coreclr-debug-win7-x64.zip</a><br>解压之后放在用户名下的vscode\ms-vscode.csharp-1.21.5 下面 .debugger</p>
+<p>Razor<br><a href="https://download.visualstudio.microsoft.com/download/pr/e9818322-b13b-44d7-b54b-16d2861ccdab/4ce6a4c459232698e28d84cdc79e668a/razorlanguageserver-win-x64-1.0.0-alpha3-20190819.3.zip" target="_blank" rel="noopener">https://download.visualstudio.microsoft.com/download/pr/e9818322-b13b-44d7-b54b-16d2861ccdab/4ce6a4c459232698e28d84cdc79e668a/razorlanguageserver-win-x64-1.0.0-alpha3-20190819.3.zip</a><br>解压之后放在用户名下的vscode\ms-vscode.csharp-1.21.5 下面 .razor</p>
+<p>创建.开头的文件需要输入 “.debugger.”</p>
+<p>插件目录下面可以按照版本创建文件夹</p>
+<p>所有的插件目录下面都需要添加“install.LOCK”空文件</p>
+<hr>
+<p>C#插件报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OmniSharp.exe&apos; is not recognized as an internal or external command,</span><br></pre></td></tr></table></figure></p>
+<p>增加系统环境变量，插件的版本不同也有可能造成这个错误；<br>低版本的设置用户环境变量也可以，高版本需要系统的环境变量；<br>如果插件手动安装，自动更新后也可能出现这样的问题；</p>
+<p>—关闭插件自动更新<br>user–&gt; feature–&gt; extensions.viewleet –&gt; extensions autoUpdate; 去掉勾<br>“extensions.autoUpdate”: false</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Git/整理Git命令/" data-id="ck8othoh3000630upjlbps1wd" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/VsCode/手动安装vscode的依赖/" data-id="ckl20eyw80031h8up2v1xlxil" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Git/">Git</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Vscode/">Vscode</a></li></ul>
 
     </footer>
   </div>
@@ -106,7 +117,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/Helongwo/page/96/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/95/">95</a><a class="page-number" href="/Helongwo/page/96/">96</a><span class="page-number current">97</span><a class="page-number" href="/Helongwo/page/98/">98</a><a class="extend next" rel="next" href="/Helongwo/page/98/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/Helongwo/page/96/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/95/">95</a><a class="page-number" href="/Helongwo/page/96/">96</a><span class="page-number current">97</span><a class="page-number" href="/Helongwo/page/98/">98</a><a class="page-number" href="/Helongwo/page/99/">99</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/101/">101</a><a class="extend next" rel="next" href="/Helongwo/page/98/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -117,7 +128,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/U3Demo/">U3Demo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
     </div>
   </div>
 
@@ -140,7 +151,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 HELONGWO<br>
+      &copy; 2021 HELONGWO<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

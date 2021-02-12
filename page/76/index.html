@@ -60,7 +60,7 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Unity3D/Unity3D之光线" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-Unity3D/Unity3d之动画系统" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
    
     
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Helongwo/Unity3D/Unity3D之光线/">Unity3D之光线</a>
+      <a class="article-title" href="/Helongwo/Unity3D/Unity3d之动画系统/">Unity3D之动画系统</a>
     </h1>
   
 
@@ -84,21 +84,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Unity3D之光线"><a href="#Unity3D之光线" class="headerlink" title="Unity3D之光线"></a>Unity3D之光线</h1><p>制作幽暗的环境</p>
-<p>1,总体环境光线设置<br>Lighting面板下面的设置:<br>skybox meterial: 空</p>
-<p>Ambient Color: 选取深度灰色,和灰度有关</p>
-<p>RealTime Lighting：关闭</p>
-<p>Baked Global Illumination: 开启</p>
-<p>Ambient Occlusion: 开启</p>
-<p>2,物体shader设置<br>使用Stander shader<br>Rendering Mode: Opaque<br>Albedo: 深系冷色调<br>Emission: 开启<br>Global Illumination: Baked<br>Specular Highlights: 开启<br>Reflections: 开启</p>
+        <h1 id="Unity3D之动画系统"><a href="#Unity3D之动画系统" class="headerlink" title="Unity3D之动画系统"></a>Unity3D之动画系统</h1><p>//获取运行时动画控制器<br>RuntimeAnimatorController m_runtimeAnimatorController =<br>    animator.runtimeAnimatorController;</p>
+<p>//设置起始动画和结束动画事件<br>        AnimationEvent newEvent = new AnimationEvent();<br>        AnimationEvent endEvent = new AnimationEvent();</p>
+<p>//设置动画播放中事件调用的函数<br>newEvent.functionName = “BeginAttack”;</p>
+<p>//设置动画播放过程中事件发生的时间<br>newEvent.time = 1.733f * 0.383f;</p>
+<p>//设置事件中传递的对象<br>newEvent.objectReferenceParameter = this;</p>
+<p>//获取动画系统中存在的动画数量<br>    AnimationClip[] clips = m_runtimeAnimatorController.animationClips;</p>
+<p>//为动画添加事件<br>    m_runtimeAnimatorController.animationClips[i].AddEvent(newEvent);</p>
+<p>//重新绑定动画<br>    animator.Rebind();</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3D之光线/" data-id="ck81v17cz003ymoup7rn2oosq" class="article-share-link">Share</a>
+      <a data-url="https://kightdgithub.github.io/Helongwo/Unity3D/Unity3d之动画系统/" data-id="ckl20eyyp007ih8updzzz8p67" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/light/">light</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/Animator/">Animator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Helongwo/tags/动画系统/">动画系统</a></li></ul>
 
     </footer>
   </div>
@@ -111,7 +112,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/Helongwo/page/75/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/74/">74</a><a class="page-number" href="/Helongwo/page/75/">75</a><span class="page-number current">76</span><a class="page-number" href="/Helongwo/page/77/">77</a><a class="page-number" href="/Helongwo/page/78/">78</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/98/">98</a><a class="extend next" rel="next" href="/Helongwo/page/77/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/Helongwo/page/75/">&laquo; Prev</a><a class="page-number" href="/Helongwo/">1</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/74/">74</a><a class="page-number" href="/Helongwo/page/75/">75</a><span class="page-number current">76</span><a class="page-number" href="/Helongwo/page/77/">77</a><a class="page-number" href="/Helongwo/page/78/">78</a><span class="space">&hellip;</span><a class="page-number" href="/Helongwo/page/101/">101</a><a class="extend next" rel="next" href="/Helongwo/page/77/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -122,7 +123,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/C/">C#</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape/">CShape</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/CShape-C/">CShape(C#)</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/">Csharp</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/">Stack</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Csharp/Stack/栈/">栈</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/DOTNETCORE/">DOTNETCORE</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/GameCode/">GameCode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/">Hexo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hexo/Nodejs/">Nodejs</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Hugo/">Hugo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/JsonDAONET/">JsonDAONET</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Lua/">Lua</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Mariadb/">Mariadb</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nodejs/">Nodejs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxt/">Nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Nuxtjs/">Nuxtjs</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Skynet/">Skynet</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/U3Demo/">U3Demo</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/UML/">UML</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Unity3D/">Unity3D</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/VisualStudio/">VisualStudio</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Vscode/">Vscode</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/ffmpeg/">ffmpeg</a></li><li class="category-list-item"><a class="category-list-link" href="/Helongwo/categories/服务器/">服务器</a></li></ul>
     </div>
   </div>
 
@@ -145,7 +146,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 HELONGWO<br>
+      &copy; 2021 HELONGWO<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
